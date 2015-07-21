@@ -14,13 +14,13 @@
   var disqus_shortname = 'flostravels';
   var disqus_identifier = parent.disqus_identifier;
   var disqus_title = parent.disqus_title;
-  var disqus_url = parent.location.href + "?" + disqus_identifier;
+  var disqus_url = "http://trip.flo.click/" + "?" + disqus_identifier;
 
   console.log("yolo: " + disqus_identifier + "," + disqus_title + "," + disqus_url);
 
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 

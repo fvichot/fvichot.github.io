@@ -44,11 +44,7 @@
       height: 300px;
     }
 
-    #story {
-      text-align: center;
-    }
-
-    #story p {
+    #story-text p {
       font-family: Georgia, serif;
       text-align: justify;
     }
@@ -77,6 +73,20 @@
 
     #comment-frame {
       border: 0px;
+      overflow: hidden ! important;
+      height: 350px ! important;
+      width: 100%;
+    }
+
+    #title-row {
+      text-align: center;
+    }
+
+    #gallery img {
+      max-height: 200px;
+      max-width: 200px;
+      margin-bottom: 3px;
+      display: inline;
     }
 
     </style>
@@ -105,23 +115,32 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div id="map" class="col-md-12"></div>
+        <div id="map" class="col-xs-12 col-sm-12 col-md-12"></div>
       </div>
-      <div class="row row-eq-height">
-        <div class="col-sm-1 col-md-1">
+
+      <div class="row row-eq-height" id='title-row'>
+        <div class="col-xs-1 col-sm-1 col-md-1">
           <button type="submit" class="btn btn-default nav-buttons" id="button-prev"><span class="glyphicon glyphicon-chevron-left"></span></button>
         </div>
-        <div id="story" class="col-sm-10 col-md-10"><p>Trip is empty.</p></div>
-        <div class="col-sm-1 col-md-1">
+        <div class="col-xs-1 col-sm-1 col-md-1"><img id='story-flag'></img></div>
+        <div class="col-xs-9 col-sm-9 col-md-9"><h1 id='story-title'></h1></div>
+        <div class="col-xs-1 col-sm-1 col-md-1">
           <button type="submit" class="btn btn-default nav-buttons" id="button-next"><span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
+
+      <div class="row">
+        <div id="story-pics" class="col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1"><p>pics are empty.</p></div>
+        <div id="story-text" class="col-sm-7 col-sm-offset-1 col-md-7 col-md-offset-1"><p>Trip is empty.</p></div>
+      </div>
+
+      <div class="row">
+         <iframe id='comment-frame' class="col-lg-12 col-md-12 col-sm-12" />
+       </iframe>
+      </div>
+
       <div class="row">
         <div id="footer" class="col-sm-12 col-md-12"><span>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></span> | <span>Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a></span></div>
-      </div>
-      <div class="row">
-         <iframe id='comment-frame' class="col-lg-12 col-md-12 col-sm-12"/>
-       </iframe>
       </div>
     </div>
 
@@ -202,11 +221,12 @@
         for(var i = 0; i < tripStops.length; i++) {
           points[i] = L.latLng(tripStops[i].pos[0], tripStops[i].pos[1]);
           var marker = L.circleMarker(points[i], {fillColor: 'red', radius: 5});
-          function genFuncHandler(i) {
-            return function() {generateNthStory(i);};
+          function onMarkerClick(e) {
+            currentStop = e.target.stopIndex;
+            generateNthStory(e.target.stopIndex);
           }
-
-          marker.on('click', genFuncHandler(i));
+          marker.stopIndex = i;
+          marker.on('click', onMarkerClick);
           marker.addTo(map);
         }
         tripPath.setLatLngs(points);
@@ -246,30 +266,41 @@
         }
 
         stop = tripStops[n];
-        htmlContent = "<h1>" + stop.title + "</h1>";
-        htmlContent += "<div id='gallery'>";
+        $('#story-title').text(stop.title);
+        $('#story-flag').prop("src","images/flags/"+stop.iso.toUpperCase()+".png");
+        $("#story-story").html("<p>" + stop.text + "</p>");
+        var htmlContent = "<div id='gallery'>";
         for(i = 0; i < stop.pics.length; i++) {
-          htmlContent += "<a href='https://dl.dropboxusercontent.com/u/65019207/tripMap/" + stop.pics[i][0] + "' title='" + stop.pics[i][1] + "'><img src='https://dl.dropboxusercontent.com/u/65019207/tripMap/thumbs/" + stop.pics[i][0] + "' alt='" + stop.pics[i][1] + "'></img></a>";
+          htmlContent += "<a  href='https://dl.dropboxusercontent.com/u/65019207/tripMap/" + stop.pics[i][0] + "' title='" + stop.pics[i][1] + "'><img src='https://dl.dropboxusercontent.com/u/65019207/tripMap/thumbs/" + stop.pics[i][0] + "' alt='" + stop.pics[i][1] + "'></img></a>";
         }
-        htmlContent += "</div><p>";
-        htmlContent += "<p>" + stop.text + "</p>";
+        htmlContent += "</div>";
 
-        $("#story").html(htmlContent);
-
-        $('#gallery').justifiedGallery({
-          lastRow : 'nojustify',
-          rowHeight : 200,
-          margins : 3,
-          rel: 'gallery'
-        }).on('jg.complete', function () {
-          $(this).find('a').colorbox({
-            maxWidth : '90%',
-            maxHeight : '90%',
-            opacity : 0.8,
-            transition : 'elastic',
-            current : '{current}/{total}'
-          })
+        $("#story-pics").html(htmlContent);
+        $('#gallery').find('a').colorbox({
+          rel:'gal',
+          maxWidth : '90%',
+          maxHeight : '90%',
+          opacity : 0.8,
+          transition : 'elastic',
+          current : '{current}/{total}'
         });
+
+        // $('#gallery').justifiedGallery({
+        //   lastRow : 'nojustify',
+        //   rowHeight : 200,
+        //   margins : 3,
+        //   rel: 'gallery'
+        // }).on('jg.complete', function () {
+        //   $(this).find('a').colorbox({
+        //     maxWidth : '90%',
+        //     maxHeight : '90%',
+        //     opacity : 0.8,
+        //     transition : 'elastic',
+        //     current : '{current}/{total}'
+        //   })
+        // });
+
+
         travellerMarker.setLatLng(stop.pos);
         map.setView(stop.pos);
         window.disqus_title = stop.title;
@@ -287,6 +318,27 @@
 
     // end on ready
     });
+
+    function getDocHeight(doc) {
+        doc = doc || document;
+        // stackoverflow.com/questions/1145850/
+        var body = doc.body, html = doc.documentElement;
+        var height = Math.max( body.scrollHeight, body.offsetHeight,
+            html.clientHeight, html.scrollHeight, html.offsetHeight );
+            console.log(height);
+        return height;
+    }
+
+    function setIframeHeight(id) {
+        var ifrm = document.getElementById(id);
+        var doc = ifrm.contentDocument? ifrm.contentDocument:
+            ifrm.contentWindow.document;
+        ifrm.style.visibility = 'hidden';
+        ifrm.style.height = "10px"; // reset to minimal height ...
+        // IE opt. for bing/msn needs a bit added or scrollbar appears
+        ifrm.style.height = getDocHeight( doc ) + 4 + "px";
+        ifrm.style.visibility = 'visible';
+    }
 
     </script>
   </body>
