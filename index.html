@@ -113,7 +113,7 @@
         </div>
       </div>
       <div class="row">
-        <div id="footer" class="col-sm-12 col-md-12"><span>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></span></div>
+        <div id="footer" class="col-sm-12 col-md-12"><span>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></span> | <span>Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a></span></div>
       </div>
     </div>
 
@@ -140,16 +140,14 @@
 
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}'+retinaSuffix+'.png?access_token=pk.eyJ1IjoiZnZpY2hvdCIsImEiOiIzYTQ3MGRiOGY4OTM3MmJiM2RkZjExZDY5ZGNiZTUyOCJ9.Gtkw7nSaBxzFxQtXDAxBHw', {
         maxZoom: 18,
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
+        attribution: '',
         id: 'mapbox.streets'
       }).addTo(map);
 
       var travellerIcon = L.icon({
         iconUrl: 'images/traveller.svg',
         iconSize: [40, 40],
-        iconAnchor: [35, 35],
+        iconAnchor: [30, 38],
         popupAnchor: [-3, -76],
         /*      shadowUrl: 'my-icon-shadow.png',
         shadowRetinaUrl: 'my-icon-shadow@2x.png',
@@ -172,6 +170,8 @@
 
       $("#fit-trip-on-map").click(function() {map.fitBounds(tripPath.getBounds());});
 
+      var currentStop = 0;
+
       $.getJSON("trip.json", handleJSON);
 
       var popup = L.popup();
@@ -192,29 +192,50 @@
       function handleJSON(data) {
         tripStops = data.stops;
         points = [];
-        for(i = 0; i < tripStops.length; i++) {
+        for(var i = 0; i < tripStops.length; i++) {
           points[i] = L.latLng(tripStops[i].pos[0], tripStops[i].pos[1]);
+          var marker = L.circleMarker(points[i], {fillColor: 'red', radius: 5});
+          function genFuncHandler(i) {
+            return function() {generateNthStory(i);};
+          }
+
+          marker.on('click', genFuncHandler(i));
+          marker.addTo(map);
         }
         tripPath.setLatLngs(points);
         map.fitBounds(tripPath.getBounds());
         generateNthStory(0);
       }
 
+      function prevStop() {
+        currentStop--;
+        if(currentStop < 0) currentStop = 0;
+        generateNthStory(currentStop);
+      }
+
+      function nextStop() {
+        currentStop++;
+        if(currentStop >= tripStops.length) currentStop = tripStops.length-1;
+        generateNthStory(currentStop);
+      }
+
+      $('#button-next').click(nextStop);
+      $('#button-prev').click(prevStop);
+
       function generateNthStory(n) {
         if(n <= 0) {
           n = 0;
-          $('#button-prev').prop("disabled", "true");
+          $('#button-prev').prop("disabled", true);
         } else {
-          $('#button-prev').prop("disabled", "false");
+          $('#button-prev').prop("disabled", false);
         }
 
         if(n >= tripStops.length-1) {
           n = tripStops.length-1;
-          $('#button-next').prop("disabled", "true");
+          $('#button-next').prop("disabled", true);
         } else {
-          $('#button-next').prop("disabled", "false");
+          $('#button-next').prop("disabled", false);
         }
-        console.log(n + " " + tripStops.length);
 
         stop = tripStops[n];
         htmlContent = "<h1>" + stop.title + "</h1>";
