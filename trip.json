@@ -31,6 +31,38 @@
         ["IMG_0653.jpg", ""]
       ],
       "text": "Hello les Aurés et Flo!!!"
+    },
+    {
+      "title": "Hobart",
+      "pos": [-42.87596, 147.34863],
+      "pics":
+      [
+      ],
+      "text": ""
+    },
+    {
+      "title": "Cairns and the great barrier reef",
+      "pos": [-16.93071, 145.81055],
+      "pics":
+      [
+      ],
+      "text": ""
+    },
+    {
+      "title": "Brisbane",
+      "pos": [-27.48878, 153.10547],
+      "pics":
+      [
+      ],
+      "text": ""
+    },
+    {
+      "title": "Port Vila",
+      "pos": [-17.75915, 168.33252],
+      "pics":
+      [
+      ],
+      "text": ""
     }
   ]
 }
