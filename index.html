@@ -75,6 +75,10 @@
       text-align: center;
     }
 
+    #comment-frame {
+      border: 0px;
+    }
+
     </style>
   </head>
   <body>
@@ -115,7 +119,10 @@
       <div class="row">
         <div id="footer" class="col-sm-12 col-md-12"><span>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></span> | <span>Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a></span></div>
       </div>
-      <div id="disqus_thread"></div>
+      <div class="row">
+         <iframe id='comment-frame' class="col-lg-12 col-md-12 col-sm-12"/>
+       </iframe>
+      </div>
     </div>
 
     <script src="js/jquery-1.11.3.min.js"></script>
@@ -124,7 +131,6 @@
     <script src="js/jquery.justifiedGallery.min.js"></script>
     <script src="js/bootstrap-switch.min.js"></script>
     <script src="js/jquery.colorbox-min.js"></script>
-    <script id="disqus-embed-script" type="text/javascript" async></script>
 
     <script>
     // run when DOM is loaded
@@ -174,8 +180,6 @@
 
       var currentStop = 0;
 
-      $.getJSON("trip.json", handleJSON);
-
       var popup = L.popup();
 
       function onMapClick(e) {
@@ -207,6 +211,7 @@
         }
         tripPath.setLatLngs(points);
         map.fitBounds(tripPath.getBounds());
+
         generateNthStory(0);
       }
 
@@ -267,18 +272,18 @@
         });
         travellerMarker.setLatLng(stop.pos);
         map.setView(stop.pos);
-        reloadDisqus();
+        window.disqus_title = stop.title;
+        window.disqus_identifier = currentStop;
+        var commentFrame = document.getElementById('comment-frame').contentWindow;
+        if( ! commentFrame.src) {
+          commentFrame.location = "comments.html";
+        } else {
+          commentFrame.location.reload(true);
+        }
       }
 
-      /* * * DISQUS CONFIGURATION VARIABLES * * */
-      var disqus_shortname = 'flostravels';
-      var disqus_identifier = currentStop;
-
-      function reloadDisqus() {
-        disqus_identifier = currentStop;
-        var url = '//' + disqus_shortname + '.disqus.com/embed.js';
-        var dsq = $("#disqus-embed-script").attr("src",url);
-      }
+      // Loaaaaaaaaaaaaad
+      $.getJSON("trip.json", handleJSON);
 
     // end on ready
     });
