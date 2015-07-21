@@ -1,0 +1,24 @@
+{
+  "stops": [
+    {
+      "title": "France - February 4th",
+      "pos": [48.80822, 2.18903],
+      "pics":
+      [
+        ["16438094312_c7ebf60e09_o_2.jpg", "My life in the basement..."],
+        ["15818682334_a921f4810d_o_2.jpg", "Ready to go!"]
+      ],
+      "text": "Time to go!!!"
+    },
+    {
+      "title": "Singapore - February 5th to February 12th",
+      "pos": [1.32511, 103.8414],
+      "pics":
+      [
+        ["16449389112_2714995f87_o_2.jpg", ""],
+        ["IMG_5556.jpg","IMG_5569.jpg", ""]
+      ],
+      "text": "Hello JC!!!"
+    }
+  ]
+}
