@@ -17,7 +17,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="css/leaflet.css" rel="stylesheet">
-    <link href="css/justifiedGallery.min.css" rel="stylesheet">
     <link href="css/bootstrap-switch.min.css" rel="stylesheet">
     <link href="css/colorbox.css" rel="stylesheet">
 
@@ -83,8 +82,8 @@
     }
 
     #gallery img {
-      max-height: 200px;
-      max-width: 200px;
+      max-height: 250px;
+      max-width: 250px;
       margin-bottom: 3px;
       display: inline;
     }
@@ -130,7 +129,7 @@
       </div>
 
       <div class="row">
-        <div id="story-pics" class="col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1"><p>pics are empty.</p></div>
+        <div id="story-pics" class="col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1"><p>Pics are empty.</p></div>
         <div id="story-text" class="col-sm-7 col-sm-offset-1 col-md-7 col-md-offset-1"><p>Trip is empty.</p></div>
       </div>
 
@@ -147,7 +146,6 @@
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/leaflet.js"></script>
-    <script src="js/jquery.justifiedGallery.min.js"></script>
     <script src="js/bootstrap-switch.min.js"></script>
     <script src="js/jquery.colorbox-min.js"></script>
 
@@ -215,10 +213,72 @@
         travellerMarker.setIcon(state ? bradIcon : travellerIcon);
       }
 
-      function handleJSON(data) {
-        tripStops = data.stops;
+      function parseData(txt) {
+        console.log("pouet pouet");
+        data = [];
+        lines = txt.split("\n");
+        state = "title";
+        dataIndex = 0;
+        console.log("pouet pouet");
+        for(i = 0; i < lines.length; i++) {
+          line = lines[i];
+          console.log(line);
+          switch (state) {
+            case "title":
+            data[dataIndex] = {};
+            data[dataIndex].title = line;
+            state = "iso";
+            break;
+
+            case "iso":
+            data[dataIndex].iso = line.toUpperCase();
+            state = "latlng";
+            break;
+
+            case "latlng":
+            tmp = line.split(' ');
+            data[dataIndex].pos = [parseFloat(tmp[0]),parseFloat(tmp[1])];
+            state = "img";
+            break;
+
+            case "img":
+            if(line.startsWith("---")) {
+              state = "text";
+              break;
+            }
+            if ( ! data[dataIndex].pics) {
+              data[dataIndex].pics = [];
+            }
+            sep = line.indexOf(' ');
+            url = line.substr(sep);
+            caption = line.slice(sep);
+            data[dataIndex].pics.push() = [url,caption];
+            break;
+
+            case "text":
+            if(line.startsWith("---")) {
+              state = "title";
+              break;
+            }
+            if ( ! data[dataIndex].text) {
+              data[dataIndex].text = "";
+            }
+            data[dataIndex].text += line;
+            break;
+
+            default:
+            console.log("CPT");
+          }
+        }
+        return data;
+      }
+
+      function handleData(data) {
+        console.log("pouet");
+        tripStops = parseData(data);
+        console.log("pouet");
         points = [];
-        for(var i = 0; i < tripStops.length; i++) {
+        for(i = 0; i < tripStops.length; i++) {
           points[i] = L.latLng(tripStops[i].pos[0], tripStops[i].pos[1]);
           var marker = L.circleMarker(points[i], {fillColor: 'red', radius: 5});
           function onMarkerClick(e) {
@@ -268,7 +328,7 @@
         stop = tripStops[n];
         $('#story-title').text(stop.title);
         $('#story-flag').prop("src","images/flags/"+stop.iso.toUpperCase()+".png");
-        $("#story-story").html("<p>" + stop.text + "</p>");
+        $("#story-text").html("<p>" + stop.text + "</p>");
         var htmlContent = "<div id='gallery'>";
         for(i = 0; i < stop.pics.length; i++) {
           htmlContent += "<a  href='https://dl.dropboxusercontent.com/u/65019207/tripMap/" + stop.pics[i][0] + "' title='" + stop.pics[i][1] + "'><img src='https://dl.dropboxusercontent.com/u/65019207/tripMap/thumbs/" + stop.pics[i][0] + "' alt='" + stop.pics[i][1] + "'></img></a>";
@@ -285,22 +345,6 @@
           current : '{current}/{total}'
         });
 
-        // $('#gallery').justifiedGallery({
-        //   lastRow : 'nojustify',
-        //   rowHeight : 200,
-        //   margins : 3,
-        //   rel: 'gallery'
-        // }).on('jg.complete', function () {
-        //   $(this).find('a').colorbox({
-        //     maxWidth : '90%',
-        //     maxHeight : '90%',
-        //     opacity : 0.8,
-        //     transition : 'elastic',
-        //     current : '{current}/{total}'
-        //   })
-        // });
-
-
         travellerMarker.setLatLng(stop.pos);
         map.setView(stop.pos);
         window.disqus_title = stop.title;
@@ -314,7 +358,9 @@
       }
 
       // Loaaaaaaaaaaaaad
-      $.getJSON("trip.json", handleJSON);
+      $.get({url:"https://dl.dropboxusercontent.com/u/65019207/tripMap/trip.txt", dataType: "text/plain", success: handleData}).fail(function( jqXHR, textStatus, errorThrown) {
+        alert( "error:"+errorThrown );
+      });
 
     // end on ready
     });
