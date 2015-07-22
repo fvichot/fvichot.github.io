@@ -358,9 +358,9 @@
       }
 
       // Loaaaaaaaaaaaaad
-      $.get({url:"trip.txt", dataType: "text", success: handleData}).fail(function( jqXHR, textStatus, errorThrown) {
-        alert( "error:"+errorThrown );
-      });
+      $.get('trip.txt').done(function(data, textStatus, jqXHR) {handleData(data);})
+                      .fail(function( jqXHR, textStatus, errorThrown) {alert( "error:"+errorThrown );
+                    });
 
     // end on ready
     });
