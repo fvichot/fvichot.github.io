@@ -358,7 +358,7 @@
       }
 
       // Loaaaaaaaaaaaaad
-      $.get({url:"https://dl.dropboxusercontent.com/u/65019207/tripMap/trip.txt", dataType: "text/plain", success: handleData}).fail(function( jqXHR, textStatus, errorThrown) {
+      $.get({url:"trip.txt", dataType: "text", success: handleData}).fail(function( jqXHR, textStatus, errorThrown) {
         alert( "error:"+errorThrown );
       });
 
