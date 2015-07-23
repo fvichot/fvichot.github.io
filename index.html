@@ -34,6 +34,10 @@
       margin-bottom: 0px;
     }
 
+    #where-is-flo {
+      margin-right: 5px;
+    }
+
     .bootstrap-switch-id-brad-mode {
       margin: 8px 5px 8px 5px;
     }
@@ -70,8 +74,13 @@
       padding: 1px;
     }
 
+    #story-text {
+      margin-top: 5px;
+    }
+
     #story-text p {
       white-space: pre;
+      text-align: justify;
     }
 
     #story-flag {
@@ -112,7 +121,6 @@
     </style>
   </head>
   <body>
-
     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -126,6 +134,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><button type="button" class="btn btn-default navbar-btn" id="where-is-flo"><span class="glyphicon glyphicon-tent"></span> Where's Flo now?</button></li>
             <li><button type="button" class="btn btn-default navbar-btn" id="fit-trip-on-map"><span class="glyphicon glyphicon-globe"></span> Fit whole trip on map</button></li>
             <li><input id="brad-mode" type="checkbox" name="brad-mode-checkbox" data-label-text="Brad Mode" data-checked="false" autocomplete="off"></li>
           </ul>
@@ -150,14 +159,12 @@
           <button type="submit" class="btn btn-default nav-buttons" id="button-next"><span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
-
-      <div class="row">
-        <div id="story-pics" class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2"><p>Pics are empty.</p></div>
-      </div>
       <div class="row">
         <div id="story-text" class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2"><p>Trip is empty.</p></div>
       </div>
-
+      <div class="row">
+        <div id="story-pics" class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2"><p>Pics are empty.</p></div>
+      </div>
       <div class="row">
          <iframe id='comment-frame' class="col-lg-12 col-md-12 col-sm-12" />
        </iframe>
@@ -228,11 +235,25 @@
         if( ! e.originalEvent.shiftKey) return;
         popup
         .setLatLng(e.latlng)
-        .setContent("[" + e.latlng.lat + ", " + e.latlng.lng + "]")
+        .setContent(e.latlng.lat + " " + e.latlng.lng)
         .openOn(map);
       }
 
       map.on('click', onMapClick);
+
+       function escapeHtml(string) {
+         var entityMap = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': '&quot;',
+            "'": '&#39;',
+            "/": '&#x2F;'
+          };
+         return String(string).replace(/[&<>"'\/]/g, function (s) {
+           return entityMap[s];
+         });
+       }
 
       function toggleBradMode(event, state) {
         travellerMarker.setIcon(state ? bradIcon : travellerIcon);
@@ -248,7 +269,7 @@
           line = lines[i];
           switch (state) {
             case "title":
-            datum.title = line;
+            datum.title = escapeHtml(line);
             state = "iso";
             break;
 
@@ -277,7 +298,7 @@
             } else {
               url = line.slice(0,sep);
               caption = line.slice(sep+1);
-              datum.pics.push([url, caption]);
+              datum.pics.push([url, escapeHtml(caption)]);
             }
             break;
 
@@ -291,7 +312,7 @@
             if ( ! datum.text) {
               datum.text = "";
             }
-            datum.text += line + '\n';
+            datum.text += escapeHtml(line + '\n');
             break;
 
             default:
@@ -339,18 +360,6 @@
         generateNthStory(currentStop);
       }
 
-      $('#button-next').click(nextStop);
-      $('#button-prev').click(prevStop);
-
-      $(document).keydown(function(e) {
-        // don't mess with colorbox keys
-        if($("#cboxOverlay").css("display") === "block") return true;
-        if(e.which === 37) prevStop();
-        if(e.which === 39) nextStop();
-      });
-
-
-
       function generateNthStory(n) {
         if(n <= 0) {
           n = 0;
@@ -365,7 +374,7 @@
         } else {
           $('#button-next').prop("disabled", false);
         }
-
+        currentStop = n;
         stop = tripStops[n];
         $('#story-title').text(stop.title);
         $('#story-flag').prop("src","images/flags/"+stop.iso.toUpperCase()+".png");
@@ -390,8 +399,12 @@
           title: function() {
             var url = $(this).attr('href');
             var title = $(this).attr('title');
-            return '<a href="' + url + '" target="_blank">'+title+
-            ' <span class="glyphicon glyphicon-new-window"></span></a>'
+            if (title != "") {
+              return '<a href="' + url + '" target="_blank">'+title+
+              ' <span class="glyphicon glyphicon-new-window"></span></a>';
+            } else {
+              return "";
+            }
           }
         });
 
@@ -410,6 +423,17 @@
         window.location.href = url + "#" + currentStop;
       }
 
+      $('#button-next').click(nextStop);
+      $('#button-prev').click(prevStop);
+      $('#where-is-flo').click(function(){generateNthStory(tripStops.length-1)});
+
+      $(document).keydown(function(e) {
+        // don't mess with colorbox keys
+        if($("#cboxOverlay").css("display") === "block") return true;
+        if(e.which === 37) prevStop();
+        if(e.which === 39) nextStop();
+      });
+
       // Loaaaaaaaaaaaaad
       $.get('trip.txt',null, null, "text").done(function(data, textStatus, jqXHR) {handleData(data);})
                       .fail(function( jqXHR, textStatus, errorThrown) {alert( "error:"+errorThrown );
@@ -418,27 +442,9 @@
     // end on ready
     });
 
-    function getDocHeight(doc) {
-        doc = doc || document;
-        // stackoverflow.com/questions/1145850/
-        var body = doc.body, html = doc.documentElement;
-        var height = Math.max( body.scrollHeight, body.offsetHeight,
-            html.clientHeight, html.scrollHeight, html.offsetHeight );
-            console.log(height);
-        return height;
-    }
-
-    function setIframeHeight(id) {
-        var ifrm = document.getElementById(id);
-        var doc = ifrm.contentDocument? ifrm.contentDocument:
-            ifrm.contentWindow.document;
-        ifrm.style.visibility = 'hidden';
-        ifrm.style.height = "10px"; // reset to minimal height ...
-        // IE opt. for bing/msn needs a bit added or scrollbar appears
-        ifrm.style.height = getDocHeight( doc ) + 4 + "px";
-        ifrm.style.visibility = 'visible';
-    }
-
     </script>
   </body>
 </html>
+
+<!-- In case I want to switch to Flickr -->
+<!-- <div style='position: relative; padding-bottom: 101%; height: 0; overflow: hidden;'><iframe id='iframe' src='//flickrit.com/slideshowholder.php?height=100&size=big&setId=70871724@N08&credit=1&thumbnails=0&transition=0&layoutType=responsive&sort=0' scrolling='no' frameborder='0'style='width:100%; height:100%; position: absolute; top:0; left:0;' ></iframe></div> -->
