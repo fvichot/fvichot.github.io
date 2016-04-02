@@ -7,19 +7,17 @@
 <title>Florian Vichot - CV</title>
 
 <link rel="stylesheet" href="css/font-awesome.css">
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="css/bootstrap.css">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="css/bootstrap-theme.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="js/bootstrap.min.js"></script>
 
 <style type="text/css">
 	body {
 		margin-bottom: 50px;
 		line-height: 1.2;
+	}
+
+	.container {
+		max-width: 750px
 	}
 
 	.vertical-align {
@@ -238,10 +236,31 @@
 		}
 
 		.no-print {
-			display: none;
+			display: none !important;
 		}
 
     	.print-break {page-break-after: always;}
+
+    	.col-print-1 ,.col-print-2 ,.col-print-3 ,.col-print-4 ,.col-print-5 ,.col-print-6 ,.col-print-7 ,.col-print-8 ,.col-print-9 ,.col-print-10,.col-print-11,.col-print-12 {
+			position: relative;
+			min-height: 1px;
+			padding-right: 15px;
+			padding-left: 15px;
+			float: left;
+    	}
+
+    	.col-print-1 {width:8%; }
+		.col-print-2 {width:16%;}
+		.col-print-3 {width:25%;}
+		.col-print-4 {width:33%;}
+		.col-print-5 {width:42%;}
+		.col-print-6 {width:50%;}
+		.col-print-7 {width:58%;}
+		.col-print-8 {width:66%;}
+		.col-print-9 {width:75%;}
+		.col-print-10{width:83%;}
+		.col-print-11{width:92%;}
+		.col-print-12{width:100%;}
 	}
 </style>
 </head>
@@ -249,13 +268,14 @@
 <div class="container">
 	<div class="row vertical-align">
 
-	<div id="title" class="col-xs-8 text-center"><h1>Florian Vichot <small>Développeur polyvalent</small></h1></div>
-	<div id="infos" class="col-xs-4">
-		<span class="fa fa-phone"></span><span id="phone">+33 6 62 04 94 38</span><br>
-		<span class="fa fa-envelope"></span><a href="mailto:florian.vichot@gmail.com?subject=You're hired!&body=Hi Florian,%0a%0aPlease accept all this money.%0a%0a Thanks." id="email">florian.vichot@gmail.com</a><br>
-		<span class="fa fa-github"></span><a id="github" href="https://github.com/fvichot">fvichot</a>
+	<div id="title" class="col-xs-12 col-sm-8 col-print-8 text-center"><h1>Florian Vichot <small>Développeur polyvalent</small></h1></div>
+	<div id="infos" class="col-xs-12 col-sm-4 col-print-4">
+		<div><span class="fa fa-phone"></span><span id="phone">+33 6 62 04 94 38</span></div>
+		<div><span class="fa fa-envelope"></span><a href="mailto:florian.vichot@gmail.com" id="email">florian.vichot@gmail.com</a></div>
+		<div><span class="fa fa-github"></span><a id="github" href="https://github.com/fvichot">fvichot</a>
 		<span class="fa fa-stack-overflow"></span><a id="stack-overflow" href="http://stackoverflow.com/users/2984/florian">florian</a>
-		<span class="fa fa-linkedin"></span><a id="linkedin" href="https://fr.linkedin.com/in/fvichot">fvichot</a>
+		<span class="fa fa-linkedin"></span><a id="linkedin" href="https://fr.linkedin.com/in/fvichot">fvichot</a></div>
+		<div class="no-print"><span class="fa fa-file-pdf-o"></span><a id="pdf" href="http://flo.click/cv_fr_florian_vichot_html.pdf">This page as a PDF</a></div>
 	</div>
 	</div>
 	<div class="row">
@@ -419,7 +439,7 @@
 	<div class="row">
 
 		<!-- BEGIN Prog Langages -->
-		<div class="col-xs-3"><span class="skill-header">Langages</span>
+		<div class="col-xs-6 col-sm-3 col-print-3"><span class="skill-header">Langages</span>
 
 			<div class="section-item row">
 				<span class="skill-level">Excellent</span><span class="bar bar-master"></span>
@@ -446,7 +466,7 @@
 		<!-- END Prog Langages -->
 
 		<!-- BEGIN Libs -->
-		<div class="col-xs-3"><span class="skill-header">Outils et concepts</span>
+		<div class="col-xs-6 col-sm-3 col-print-3"><span class="skill-header">Outils et concepts</span>
 
 			<div class="section-item row">
 				<span class="skill-level">Excellent</span><span class="bar bar-master"></span>
@@ -465,8 +485,10 @@
 		</div>
 		<!-- END Libs -->
 
+		<div class="clearfix visible-xs-block no-print"></div>
+
 		<!-- BEGIN Network -->
-		<div class="col-xs-3"><span class="skill-header">Réseaux et Cloud</span>
+		<div class="col-xs-6 col-sm-3 col-print-3"><span class="skill-header">Réseaux et Cloud</span>
 
 			<div class="section-item row">
 				<span class="skill-level">Excellent</span><span class="bar bar-master"></span>
@@ -486,7 +508,7 @@
 		<!-- END Network -->
 
 		<!-- BEGIN Platforms -->
-		<div class="col-xs-3"><span class="skill-header">Plateformes</span>
+		<div class="col-xs-6 col-sm-3 col-print-3"><span class="skill-header">Plateformes</span>
 
 			<div class="section-item row">
 				<span class="skill-level">Excellent</span><span class="bar bar-master"></span>
