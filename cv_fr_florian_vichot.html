@@ -6,282 +6,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Florian Vichot - CV</title>
 
+<link rel="stylesheet" href="css/all.css">
 <link rel="stylesheet" href="css/font-awesome.css">
 <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-theme.css">
 
-<style type="text/css">
-	body {
-		margin-bottom: 50px;
-		line-height: 1.2;
-	}
-
-	.container {
-		max-width: 750px
-	}
-
-	.vertical-align {
-    	display: flex;
-    	align-items: center;
-	}	
-
-	.progress {
-		border: 1px solid black;
-		border-radius: 2px;
-		width: 30px;
-		height: 10px;
-		background-color: white;
-	}
-	.progress-full {
-
-	}
-
-	#title h1 small{
-		display: block;
-	}
-	#summary{
-		font-size: 16px;
-		margin-top: 15px;
-	}
-	#name {
-		font-weight: bold;
-		font-variant: small-caps;
-	}
-
-	#infos .fa {
-		margin-right: 3px;
-	}
-
-	#infos .fa + a {
-		margin-right: 5px;
-	}
-
-	.section-header h2{
-		padding: 0 5px 1px 0;
-		text-transform: uppercase;
-		font-weight: bold;
-		font-size: 14px;
-	}
-
-	.headline {
-		width: 100%;
-		overflow: hidden;
-		color: #3e6d8e;
-		margin-top:10px;
-	}
-
-	.headline:after {
-		content: '';
-		display: inline-block;
-		vertical-align: middle;
-		height: 3px;
-		border-top: 1px solid #ccc;
-		width: 100%;
-		margin-right: -100%;
-		margin-left: 5px;
-	}
-
-	.section .section-item:last-of-type {
-		border-bottom-width: 0px !important; 
-	}
-
-	.section-item {
-		margin-bottom: 5px;
-		/*border-bottom: 1px solid #ccc;*/
-	}
-
-	.section-item-highlights {
-		margin-top: 3px;
-		vertical-align: middle;
-		list-style-type: none;
-		margin-bottom: 10px;
-	}
-
-	.section-item-highlights li {
-		
-	}
-
-	.section-item-highlights li::before {
-		content: "\f105";
-		font-family: 'FontAwesome';
-		font-size: 12px;
-	    margin-left: -10px;
-	    margin-right: 5px;
-	}
-	
-	.section-item-title {
-		font-weight: bold;
-		margin-bottom: 20px;
-	}
-
-	.section-item-location {
-		font-size: 13px;
-	}
-
-	.section-item-date {
-		font-style: italic;
-		font-size: 13px;
-		color: #777;
-	}
-
-	.section-item-date::before {
-		/*content: "\f017";
-		font-family: "FontAwesome";
-		font-style: normal;*/
-	}
-
-	.section-item-content {
-		
-	}
-
-	.section-item-location::before,
-	.section-item-location::after {
-		content: " — ";
-	}
-
-	ul.section-item-skills li {
-		background-color: #dfeaf0;
-		border-radius: 3px;
-		padding-top: 2px;
-		padding-bottom: 2px;
-		margin-right: 2px;
-		color: #3e6d8e;
-		font-size: 12px;
-	}
-
-	.skill-header {
-		font-weight: bold;
-		padding-bottom: 3px;
-	}
-
-	ul.skill-content li {
-		background-color: #dfeaf0;
-		border-radius: 3px;
-		padding-top: 2px;
-		padding-bottom: 2px;
-		margin-right: 2px;
-		color: #3e6d8e;
-		font-size: 12px;
-	}
-
-	ul.skill-content {
-		margin-left: 0px;
-		margin-bottom: 0px;
-	}
-
-	.skill-level {
-		display: block;
-		font-size: 13px;
-		color: #777;
-		margin-left: 2px;
-	}
-
-	.bar {
-		border: 1px solid #ddd !important;
-		display: block;
-		height: 5px;
-		margin: 0 0 5px 0;
-		position: relative;
-		margin-right: 20px;
-	}
-
-	.bar::after {
-		position: absolute;
-		content: " ";
-		top: -1px;
-		left: 0;
-		height: 5px;
-	}
-
-	.bar-master::after {
-		background: #5CB85C;
-		width: 100%;
-	}
-
-	.bar-good::after {
-		background: #5CB85C;
-		width: 66%;
-	}
-
-	.bar-basic::after {
-		background: #5CB85C;
-		width: 33%;
-	}
-
-	#education ul{
-		list-style-type: none;
-	}
-
-	.pub-authors {
-		font-size: 13px;
-		color: #777;
-		margin-left: 2px;
-	}
-
-	.pub-abstract {
-		font-size: 13px;
-		padding: 0 5px 5px 10px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-
-	#footer {
-		margin-top: 30px;
-		opacity: 0.3
-	}
-	@media print {
-		body {
-			-webkit-print-color-adjust: exact;
-			margin-bottom: 0;
-		}
-
-		.no-print {
-			display: none !important;
-		}
-
-    	.print-break {page-break-after: always;}
-
-    	.col-print-1 ,.col-print-2 ,.col-print-3 ,.col-print-4 ,.col-print-5 ,.col-print-6 ,.col-print-7 ,.col-print-8 ,.col-print-9 ,.col-print-10,.col-print-11,.col-print-12 {
-			position: relative;
-			min-height: 1px;
-			padding-right: 15px;
-			padding-left: 15px;
-			float: left;
-    	}
-
-    	.col-print-1 {width:8%; }
-		.col-print-2 {width:16%;}
-		.col-print-3 {width:25%;}
-		.col-print-4 {width:33%;}
-		.col-print-5 {width:42%;}
-		.col-print-6 {width:50%;}
-		.col-print-7 {width:58%;}
-		.col-print-8 {width:66%;}
-		.col-print-9 {width:75%;}
-		.col-print-10{width:83%;}
-		.col-print-11{width:92%;}
-		.col-print-12{width:100%;}
-	}
-</style>
 </head>
 <body>
 <div class="container">
-	<div class="row vertical-align">
+	<div class="row">
 
-	<div id="title" class="col-xs-12 col-sm-8 col-print-8 text-center"><h1>Florian Vichot <small>Développeur polyvalent</small></h1></div>
-	<div id="infos" class="col-xs-12 col-sm-4 col-print-4">
+	<div id="title" class="col-xs-12 col-sm-7 col-print-8 text-center"><h1>Florian Vichot <small>Développeur polyvalent</small></h1></div>
+	<div class="no-print visible-xs col-xs-4"></div>
+	<div id="infos" class="col-xs-4 col-sm-4 col-print-4 text-right">
 		<div><span class="fa fa-map-marker"></span><span id="phone">Basé à Paris</span></div>
 		<div><span class="fa fa-phone"></span><span id="phone">+33 6 62 04 94 38</span></div>
 		<div><span class="fa fa-envelope"></span><a href="mailto:florian.vichot@gmail.com" id="email">florian.vichot@gmail.com</a></div>
 		<div><span class="fa fa-github"></span><a id="github" href="https://github.com/fvichot">fvichot</a>
 		<span class="fa fa-stack-overflow"></span><a id="stack-overflow" href="http://stackoverflow.com/users/2984/florian">florian</a>
 		<span class="fa fa-linkedin"></span><a id="linkedin" href="https://fr.linkedin.com/in/fvichot">fvichot</a></div>
-		<div class="no-print"><span class="fa fa-file-pdf-o"></span><a id="pdf" href="http://flo.click/cv_fr_florian_vichot_html.pdf">This page as a PDF</a></div>
 	</div>
+	<div id="pdf" class="no-print col-xs-1 col-sm-1"><a href="http://flo.click/cv_fr_florian_vichot_html.pdf"><span class="fa fa-file-pdf-o"></span>PDF</a></div>
 	</div>
 	<div class="row">
 	<div id="summary" class="col-xs-12">
-		Développeur avec six ans d'expérience professionnelle et une quinzaine d'années de développement sur des projets personnels. Principalement expérimenté en C/C++/Python, je m'adapte vite et peux apprendre de nouveaux langages, bibliothèques ou technologies rapidement. Je suis à la recherche d'un poste dans un environnement innovant et talentueux, où je pourrais m'investir dans des projets stimulants, étendre mes connaissances et travailler avec des gens passionnés !
+		Développeur expérimenté avec plus d'une quinzaine années d'expérience, professionnelle ou sur des projets personnels. À l'aise avec des langages tels que le C, le C++ ou le Python, j'aspire avant tout à être polyvalent et à savoir résoudre une grande variété de problème, comme en témoigne la richesse de mon parcours. Intéressé principalement par des roles de devOps, ingénieur backend ou infrastructure, je suis ouvert à toutes propositions me permettant de travailler sur des problèmes épineux au sein d'une équipe talentueuse. Je suis en particulier attiré par la possibilité de travailler sur des projets open-source ou avec une composante sociale ou humanitaire.
 	</div>
 	</div>
 
@@ -290,16 +38,48 @@
 	<div class="section print-break">
 	<div class="section-header row" id="experience"><h2 class="headline">Expériences</h2></div>
 
+	<!-- Wifirst -->
+
+	<div class="section-item row experience">
+		<div class="section-item-content col-xs-12">
+			<span class="section-item-title">Ingénieur Logiciel et Réseaux</span><span class="section-item-location"><a href="http://wifirst.fr/">Wifirst</a></span><span class="section-item-date"> avril 2016 à aujourd'hui</span>
+			<ul class="section-item-highlights">
+				<li>Correction de bugs et ajouts de fonctionnalité sur les services opérants dans le routeur déployé chez les clients, basé sur un Linux Debian, en charge du controle d'accès et de la qualité de service.</li>
+			  	<li>Maintien en condition opérationnelle d'une flotte d'environ 6 000 routeurs, déploiement de mise à jour par Ansible, sécurisation. Création d'outils pour faciliter cette tache.</li>
+				<li>Évaluation et selection de nouvelles bases matérielle pour le routeur Wifirst.</li>
+				<li>Portage des services et l'OS du routeur vers une nouvelle architecture, basée sur un SoC Broadcom.</li>
+				<li>Ajout de fonctionalités et correction de bug sur les logiciels internes, tel que notre interface de supervision, ou notre outil de gestion de configuration.</li>
+				<li><a href="https://www.youtube.com/watch?v=0uasvz2DYos">Orateur</a> à la PyCon Fr 2017</li>
+		  </ul>
+			<ul class="section-item-skills list-inline">
+				<li>Python</li>
+				<li>Django</li>
+				<li>Bash</li>
+				<li>Git</li>
+				<li>Ansible</li>
+				<li>iptables</li>
+				<li>SNMP</li>
+				<li>QoS</li>
+				<li>VLAN</li>
+				<li>WiFI</li>
+				<li>Réseaux</li>
+				<li>Embarqué</li>
+				<li>Système</li>
+				<li>Linux</li>
+			</ul>
+		</div>
+	</div>
+
 	<!-- INRIA -->
 
-	<div class="section-item row vertical-align experience">
+	<div class="section-item row experience">
 		<div class="section-item-content col-xs-12">
 			<span class="section-item-title">Ingénieur Expert</span><span class="section-item-location"><a href="https://team.inria.fr/asclepios/">Inria Sophia-Antipolis, Laboratoire Asclepios</a></span><span class="section-item-date"> mars 2012 à avril 2015, 3 ans</span>
 			<ul class="section-item-highlights">
 			  <li>Travail sur <a href="http://med.inria.fr">medInria</a>, un logiciel open-source de visualisation, manipulation et traitement d'images médicales, notamment ajout de fonctionnalités dans le domaine cardiaque.</li>
 			  <li>Contribution à améliorer la fiabilité de medInria, et sa qualité de code en généralisant l'utilisation de revue de code et pull-requests. Migration du projet sur GitHub, réorganisation, nettoyage et simplification des sources, ré-implémentation du processus de compilation/test.</li>
 			  <li>Refonte de l'architecture de medInria afin de pouvoir gérer de nouvelles fonctionnalités et pouvoir devenir une structure (framework) à d'autres projets en s'appuyant sur un mécanisme de plugin.</li>
-			  <li>Participation à des conférences, ateliers, et contributions à des articles scientifiques.</li>
+			  <li>Participation à des conférences (MICCAI), ateliers (CTK), et contributions à des articles scientifiques.</li>
 		  </ul>
 			<ul class="section-item-skills list-inline">
 				<li>C++</li>
@@ -321,7 +101,7 @@
 
 	<!-- TSF -->
 
-	<div class="section-item row vertical-align experience">
+	<div class="section-item row experience">
 		<div class="section-item-content col-xs-12">
 			<span class="section-item-title">Ingénieur Télécoms et Réseaux</span><span class="section-item-location"><a href="http://www.tsfi.org/">Télécoms Sans Frontières</a></span>
 			<span class="section-item-date"> mars/avril 2015, et sept. 2010 à oct. 2011, 1 an</span>
@@ -344,7 +124,7 @@
 
 	<!-- Diateam -->
 
-	<div class="section-item row vertical-align experience">
+	<div class="section-item row experience">
 		<div class="section-item-content col-xs-12">
 			<span class="section-item-title">Développeur</span><span class="section-item-location"><a href="http://www.diateam.net/">Diateam</a></span>
 			<span class="section-item-date"> juin 2008 à avril 2010, juillet/août 2007, 2 ans</span>
@@ -357,11 +137,9 @@
 				<li>C</li>
 				<li>C++</li>
 				<li>Python</li>
-				<li>SVN</li>
 				<li>Open-Source</li>
 				<li>Qt</li>
-				<li>Sockets</li>
-				<li>Threads</li>
+				<li>Multi-Thread</li>
 				<li>Container</li>
 				<li>Virtualisation</li>
 				<li>OpenCL</li>
@@ -374,14 +152,14 @@
 
 	<!-- ENSTA -->
 
-	<div class="section-item row vertical-align experience section-last">
+	<div class="section-item row experience section-last">
 		<div class="section-item-content col-xs-12">
 			<span class="section-item-title">Stage de fin d'études</span><span class="section-item-location"><a href="http://cogrob.ensta-paristech.fr/">Laboratoire de Robotique Cognitive (ENSTA)</a></span>
 			<span class="section-item-date">sep. 2007 à jan. 2008, 5 mois</span>
 			<ul class="section-item-highlights">
 			  <li>Implémentation de composants de navigation et positionnement visuel via la méthode des "bags of visual words", afin de créer un système de navigation topologique, sous forme de modules Urbi.</li>
 			  <li>Portage de l'environnement Urbi sur un robot P3-DX.</li>
-			  <li>Ce travail a servi de base pour une publication scientifique.</li>
+			  <li>Ce travail a servi de base pour une <a href="https://hal-ensta.archives-ouvertes.fr/hal-00641356">publication scientifique</a>.</li>
 		  </ul>
 			<ul class="section-item-skills list-inline">
 				<li>C</li>
@@ -402,7 +180,7 @@
 <div class="section">
 <div class="section-header row"><h2 class="headline">Bénévolat</h2></div>
 
-	<div class="section-item row vertical-align">
+	<div class="section-item row">
 		<div class="section-item-content col-xs-10">
 			<span class="section-item-title">Association de Robotique</span><span class="section-item-location"><a href="https://www.enib.fr/">ENIB</a></span><span class="section-item-date">2004 à 2010</span>
 			<ul class="section-item-highlights">
@@ -422,7 +200,7 @@
 		</div>
 	</div>
 
-<div class="section-item row vertical-align">
+<div class="section-item row">
 		<div class="section-item-content col-xs-12">
 			<span class="section-item-title">Gestion de serveur</span><span class="section-item-location">Personnel</span><span class="section-item-date">2011 à 2015</span>
 			<ul class="section-item-highlights">
@@ -484,14 +262,14 @@
 			<div class="section-item row">
 				<span class="skill-level">Excellent</span><span class="bar bar-master"></span>
 				<ul class="skill-content list-inline">
-					<li>Qt</li><li>Git</li><li>SVN</li><li>CMake</li><li>Multi-threading</li><li>OOP</li><li>Robotique</li>
+					<li>Qt</li><li>Git</li><li>SVN</li><li>CMake</li><li>Multi-threading</li><li>Robotique</li>
 				</ul>
 			</div>
 
 			<div class="section-item row">
 				<span class="skill-level">Bon</span><span class="bar bar-good"></span>
 				<ul class="skill-content list-inline">
-					<li>VTK</li><li>ITK</li><li>OpenGL</li><li>OpenCL</li><li>MySQL</li><li>Algorithmes</li><li>Optimisation</li>
+					<li>OpenGL</li><li>OpenCL</li><li>SQL</li><li>Algorithmes</li><li>Optimisation</li>
 				</ul>
 			</div>
 
@@ -506,7 +284,7 @@
 			<div class="section-item row">
 				<span class="skill-level">Excellent</span><span class="bar bar-master"></span>
 				<ul class="skill-content list-inline">
-					<li>IP</li><li>UDP</li><li>TCP</li><li>ICMP</li><li>Sécurité</li><li>HTTP</li>
+					<li>Protocoles internet</li><li>Administration</li><li>Sécurité</li>
 				</ul>
 			</div>
 
@@ -550,7 +328,7 @@
 <div id="education" class="section-item-highlights">
 <ul>
 	<li><b>Français</b>: Courant (langue maternelle)</li>
-	<li><b>Anglais</b>: Courant (scolarisé 3 ans au Royaume-Uni, TOEFL: 673, TOEIC: 965)</li>
+	<li><b>Anglais</b>: Courant (scolarisé 3 ans au Royaume-Uni, TOEFL iBT: 119/120, PTE: 90/90)</li>
 	<li><b>Espagnol</b>: Intermédiaire (6 mois en amérique du sud)</li>
 </ul>
 </div>
@@ -564,7 +342,7 @@
 <ul>
 	<li><span class="fa fa-graduation-cap"></span> Diplômé de l'<a href="https://www.enib.fr/">ENIB</a> (École Nationale d'Ingénieurs de Brest) en juin 2008.</li>
 	<li>Score de 85% sur le cours en ligne d'Intelligence Artificielle de l'Université de Stanford (2012).</li>
-	<li>Actuellement inscrit au cours en ligne de Machine Learning par Coursera.</li>
+	<li>Complétion du cours en ligne de Machine Learning par Coursera.</li>
 </ul>
 </div>
 </div>
@@ -574,17 +352,17 @@
 <div class="section">
 <div class="section-header row"><h2 class="headline">Articles</h2></div>
 
-<div class="section-item row vertical-align">
+<div class="section-item row">
 	<div class="section-item-content col-xs-12">
 		<span class="section-item-title"><a href="http://link.springer.com/article/10.1007/s11416-009-0134-4#/page-1">IpMorph: fingerprinting spoofing unification</a></span><span class="section-item-location">Journal in computer virology 6, no. 4 (2010)</span><span class="section-item-date">2010</span>
 		<div>
 			<div class="pub-authors">Auteurs: G. Prigent, F. Vichot, F. Harrouet</div>
-			<blockquote class="pub-abstract">Il y a de nos jours une diversité d'outils pour aisement reconnaitre l'empreinte de la pile TCP/IP d'une machine cible. IpMorph permet de camoufler, et même de mimiquer la signature d'une pile TCP/IP au choix. Ceci est réalisé par un suivi de session et une ré-écriture des paquets à la volée. Nous détaillons aussi son efficatité face à des outils tels que Nmap, Xprobe2, Ring2, SinFP et p0f.</blockquote>
+			<blockquote class="pub-abstract">Il y a de nos jours une diversité d'outils pour aisement reconnaitre l'empreinte de la pile TCP/IP d'une machine cible. IpMorph permet de camoufler, et même de mimiquer la signature d'une pile TCP/IP au choix. Ceci est réalisé par un suivi de session et une ré-écriture des paquets à la volée. Nous détaillons aussi son efficacité face à des outils tels que Nmap, Xprobe2, Ring2, SinFP et p0f.</blockquote>
 		</div>
 	</div>
 </div>
 
-<div class="section-item row vertical-align">
+<div class="section-item row">
 	<div class="section-item-content col-xs-12">
 		<span class="section-item-title"><a href="https://hal.inria.fr/hal-00813873/">Cardiac Interventional Guidance using Multimodal Data Processing and Visualisation: medInria as an Interoperability Platform</a></span><span class="section-item-location">Midas Journal</span><span class="section-item-date">2012</span>
 		<div>
@@ -600,7 +378,7 @@
 
 <div id="footer" class="row text-center no-print">
 	<div class="col-xs-12">
-		<small>Created with <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></small>
+		<small>Créé avec <a href="http://getbootstrap.com">Bootstrap</a> et <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></small>
 	</div>
 </div>
 

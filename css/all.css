@@ -1,0 +1,497 @@
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+figcaption,
+figure,
+main {
+  display: block;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+b,
+strong {
+  font-weight: inherit;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+dfn {
+  font-style: italic;
+}
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+audio,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+img {
+  border-style: none;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+input {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+textarea {
+  overflow: auto;
+}
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+details,
+menu {
+  display: block;
+}
+summary {
+  display: list-item;
+}
+canvas {
+  display: inline-block;
+}
+template {
+  display: none;
+}
+[hidden] {
+  display: none;
+}
+/* END normalize.css  */
+/*! Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - Font: SIL OFL 1.1, CSS: MIT License
+ */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot');
+  src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+       url('../fonts/fontawesome-webfont.woff2') format('woff2'),
+       url('../fonts/fontawesome-webfont.woff') format('woff'),
+       url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+       url('../fonts/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* END FontAwesome.css */
+body {
+    margin-bottom: 50px;
+    line-height: 1.2;
+}
+
+.container {
+  max-width: 750px
+}
+
+.progress {
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 30px;
+  height: 10px;
+  background-color: white;
+}
+.progress-full {
+
+}
+
+#title h1 small{
+  display: block;
+}
+#summary{
+  font-size: 16px;
+  margin-top: 15px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+#name {
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+#infos {
+  margin-top: 20px;
+}
+
+#infos .fa {
+  margin-right: 3px;
+}
+
+#infos a + .fa {
+  margin-left: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  #infos {
+    text-align: center;
+    margin-top: 0px;
+  }
+  #pdf {
+    margin-top: 15px !important;
+  }
+}
+
+#pdf {
+  margin-top: 30px;
+}
+
+#pdf span.fa {
+  font-size: 30px;
+}
+
+.section-header h2{
+  padding: 0 5px 1px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.headline {
+  width: 100%;
+  overflow: hidden;
+  color: #3e6d8e;
+  margin-top:10px;
+}
+
+.headline:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 3px;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  margin-right: -100%;
+  margin-left: 5px;
+}
+
+.section .section-item:last-of-type {
+  border-bottom-width: 0px !important; 
+}
+
+.section-item {
+  margin-bottom: 5px;
+}
+
+.section-item-highlights {
+  margin-top: 3px;
+  vertical-align: middle;
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.section-item-highlights li {
+  
+}
+
+.section-item-highlights li::before {
+  content: "\f105";
+  font-family: 'FontAwesome';
+  font-size: 12px;
+    margin-left: -10px;
+    margin-right: 5px;
+}
+
+.section-item-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section-item-location {
+  font-size: 13px;
+}
+
+.section-item-date {
+  font-style: italic;
+  font-size: 13px;
+  color: #777;
+}
+
+.section-item-location::before,
+.section-item-date::before {
+  content: " — ";
+}
+
+ul.section-item-skills li {
+  background-color: #dfeaf0;
+  border-radius: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-right: 2px;
+  color: #3e6d8e;
+  font-size: 12px;
+}
+
+.skill-header {
+  font-weight: bold;
+  padding-bottom: 3px;
+}
+
+ul.skill-content li {
+  background-color: #dfeaf0;
+  border-radius: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-right: 2px;
+  color: #3e6d8e;
+  font-size: 12px;
+}
+
+ul.skill-content {
+  margin-left: 0px;
+  margin-bottom: 0px;
+}
+
+.skill-level {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-left: 2px;
+}
+
+.bar {
+  border: 1px solid #ddd !important;
+  display: block;
+  height: 5px;
+  margin: 0 0 5px 0;
+  position: relative;
+  margin-right: 20px;
+}
+
+.bar::after {
+  position: absolute;
+  content: " ";
+  top: -1px;
+  left: 0;
+  height: 5px;
+}
+
+.bar-master::after {
+  background: #5CB85C;
+  width: 100%;
+}
+
+.bar-good::after {
+  background: #5CB85C;
+  width: 66%;
+}
+
+.bar-basic::after {
+  background: #5CB85C;
+  width: 33%;
+}
+
+#education ul{
+  list-style-type: none;
+}
+
+.pub-authors {
+  font-size: 13px;
+  color: #777;
+  margin-left: 2px;
+}
+
+.pub-abstract {
+  font-size: 13px;
+  padding: 0 5px 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#footer {
+  margin-top: 30px;
+  opacity: 0.3
+}
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    margin-bottom: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break {page-break-after: always;}
+
+  .col-print-1,
+  .col-print-2,
+  .col-print-3,
+  .col-print-4,
+  .col-print-5,
+  .col-print-6,
+  .col-print-7,
+  .col-print-8,
+  .col-print-9,
+  .col-print-10,
+  .col-print-11,
+  .col-print-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+  }
+
+  .col-print-1 {width:8%; }
+  .col-print-2 {width:16%;}
+  .col-print-3 {width:25%;}
+  .col-print-4 {width:33%;}
+  .col-print-5 {width:42%;}
+  .col-print-6 {width:50%;}
+  .col-print-7 {width:58%;}
+  .col-print-8 {width:66%;}
+  .col-print-9 {width:75%;}
+  .col-print-10{width:83%;}
+  .col-print-11{width:92%;}
+  .col-print-12{width:100%;}
+}
+
+.sidebar {
+  float: left;
+  width: 100px;
+  height: 100%;
+  background-color: yellow;
+}
+
+.content {
+  float: right;
+}
+
