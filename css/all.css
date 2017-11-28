@@ -227,16 +227,22 @@ ul.skill-content {
   opacity: 0.3
 }
 @media print {
+  @page { 
+     margin: 0;
+  }
+
   body {
     -webkit-print-color-adjust: exact;
     margin-bottom: 0;
+    /*margin: 1.6cm;*/
   }
 
   .no-print {
     display: none !important;
   }
 
-  .print-break {page-break-after: always;}
+  /*.print-break {page-break-after: always;}*/
+  .experience {page-break-inside: avoid;}
 
   .col-print-1,
   .col-print-2,
