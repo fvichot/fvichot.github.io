@@ -241,8 +241,10 @@ ul.skill-content {
     display: none !important;
   }
 
-  /*.print-break {page-break-after: always;}*/
-  .experience {page-break-inside: avoid;}
+  .print-break-before {
+    page-break-before: always;
+    margin-top: 50px;
+  }
 
   .col-print-1,
   .col-print-2,
