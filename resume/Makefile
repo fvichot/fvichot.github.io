@@ -1,26 +1,29 @@
-TO_PDF = /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-         --headless --disable-gpu --content-shell-host-window-size=1200x1024 \
-         --print-to-pdf=output.pdf
-include ~/.cloudflare_rc
-
 ifndef VERBOSE
 .SILENT:
 endif
 
-.PHONY: css pdfs html
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+    CHROME_APP = chromium
+endif
+ifeq ($(UNAME_S),Darwin)
+    CHROME_APP = /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+endif
 
-all: pdfs html css
+include ~/.cloudflare_rc
 
-css: css/all.css css/bootstrap.css css/font-awesome.css
+TO_PDF = $(CHROME_APP) --headless --disable-gpu --content-shell-host-window-size=1200x1024 \
+         --print-to-pdf=
 
-pdfs: pdf/cv_en_florian_vichot.pdf pdf/cv_fr_florian_vichot.pdf
+FILES = cv_en_florian_vichot.html cv_fr_florian_vichot.html
+FILES_PDFS = $(FILES:%.html=pdf/%.pdf)
 
-html: cv_en_florian_vichot.html cv_fr_florian_vichot.html
+all: $(FILES_PDFS) $(FILES) css/all.css css/bootstrap.css css/font-awesome.css
 
 pdf/%.pdf: %.html
-	$(TO_PDF) file://$(PWD)/$<
 	mkdir -p pdf
-	mv output.pdf $@
+	$(TO_PDF)$@ file://$(PWD)/$< 2>/dev/null
+	echo Generated $@
 
 purge:
 	curl -s -X DELETE "https://api.cloudflare.com/client/v4/zones/$(zone)/purge_cache" \
