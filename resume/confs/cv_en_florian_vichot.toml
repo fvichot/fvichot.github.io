@@ -10,7 +10,6 @@ description = "An accomplished software developer, I have more than ten years of
 
 github = "[fvichot](https://github.com/fvichot)"
 stackoverflow = "[florian](http://stackoverflow.com/users/2984/florian)"
-linkedin = "[fvichot](https://linkedin.com/in/fvichot)"
 
 ###################################################################################################
 
@@ -115,13 +114,13 @@ low = "Basic"
 
 [[skills.item]]
 headline = "Languages"
-high = ["C", "C++", "Python", "Bash"]
+high = ["C", "C++", "Python2/3", "Bash"]
 medium = ["Go", "JavaScript", "Java", "Octave"]
 low = ["OCaml", "Rust", "Prolog"]
 
 [[skills.item]]
 headline = "Tools and concepts"
-high = ["Qt", "Git", "SVN", "CMake", "Multi-threading", "Robotics"]
+high = ["Qt", "Git", "Django", "CMake", "Multi-threading", "Robotics"]
 medium = ["OpenGL", "OpenCL", "SQL", "Algorithms", "Optimisation"]
 
 [[skills.item]]

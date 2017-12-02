@@ -22,8 +22,7 @@
 		<div><span class="fa fa-phone"></span><span id="phone">{{ header.phone }}</span></div>
 		<div><span class="fa fa-envelope"></span><a href="mailto:{{ header.email }}" id="email">{{ header.email }}</a></div>
 		<div><span class="fa fa-github"></span>{{ header.github|linkify }}
-		<span class="fa fa-stack-overflow"></span>{{ header.stackoverflow|linkify }}
-		<span class="fa fa-linkedin"></span>{{ header.linkedin|linkify }}</div>
+		<span class="fa fa-stack-overflow"></span>{{ header.stackoverflow|linkify }}</div>
 	</div>
 	<div id="pdf" class="no-print col-xs-1 col-sm-1"><a href="pdf/{{ output|basename }}.pdf"><span class="fa fa-file-pdf-o"></span>PDF</a></div>
 	</div>

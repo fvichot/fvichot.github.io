@@ -164,6 +164,7 @@ ul.skill-content li {
 ul.skill-content {
   margin-left: 0px;
   margin-bottom: 0px;
+  height: 35px;
 }
 
 .skill-level {
