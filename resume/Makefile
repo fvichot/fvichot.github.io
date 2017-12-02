@@ -17,8 +17,13 @@ TO_PDF = $(CHROME_APP) --headless --disable-gpu --content-shell-host-window-size
 
 FILES = cv_en_florian_vichot.html cv_fr_florian_vichot.html
 FILES_PDFS = $(FILES:%.html=pdf/%.pdf)
+TEMPLATE = templates/cv_html.tmpl
 
-all: $(FILES_PDFS) $(FILES) css/all.css css/bootstrap.css css/font-awesome.css
+all: $(FILES_PDFS) $(FILES)
+
+%.html: confs/%.toml $(TEMPLATE) css/all.css css/bootstrap.css css/font-awesome.css
+	scripts/render_toml.py -t $(TEMPLATE) $< $@
+	echo Generated $@
 
 pdf/%.pdf: %.html
 	mkdir -p pdf

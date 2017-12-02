@@ -190,19 +190,19 @@ ul.skill-content {
   height: 5px;
 }
 
-.bar-master::after {
+.bar-high::after {
   background: #5CB85C;
   width: 100%;
 }
 
-.bar-good::after {
-  background: #5CB85C;
-  width: 66%;
+.bar-medium::after {
+  background: #ccc208;
+  width: 75%;
 }
 
-.bar-basic::after {
-  background: #5CB85C;
-  width: 33%;
+.bar-low::after {
+  background: #666;
+  width: 50%;
 }
 
 #education ul{
