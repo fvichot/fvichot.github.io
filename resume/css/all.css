@@ -236,6 +236,7 @@ ul.skill-content {
     -webkit-print-color-adjust: exact;
     margin-bottom: 0;
     /*margin: 1.6cm;*/
+    displayHeaderFooter: false;
   }
 
   .no-print {
