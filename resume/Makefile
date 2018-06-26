@@ -32,10 +32,15 @@ pdf/%.pdf: %.html Makefile
 	$(TO_PDF)
 	echo Generated $@
 
+# For some reason, purge_enverything doesn't work, so purge each page...
 purge:
 	curl -s -X DELETE "https://api.cloudflare.com/client/v4/zones/$(zone)/purge_cache" \
          -H "X-Auth-Email: $(user)" \
          -H "X-Auth-Key: $(key)" \
          -H "Content-Type: application/json" \
-         --data '{"purge_everything":true}' >/dev/null \
+         --data '{"files":[' \
+          '"http://flo.click/resume/cv_en_florian_vichot.html",' \
+          '"http://flo.click/resume/cv_fr_florian_vichot.html",' \
+          '"http://flo.click/resume/css/all.css"' \
+          ']}' >/dev/null \
          && echo "Cloudflare cache purged!"
