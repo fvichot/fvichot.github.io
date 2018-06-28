@@ -29,7 +29,7 @@ highlights = [
 "Porting the services and OS used on our custom router to a new architecture based on a Broadcom SoC.", 
 "[Speaker](https://www.youtube.com/watch?v=0uasvz2DYos) at PyCon France 2017",
 ]
-tags = ["Python", "Django", "Nginx", "Bash", "Git", "Ansible", "iptables", "SNMP", "QoS", "VLAN", "WiFi", "Network", "DevOps"]
+tags = ["Python", "Django", "Nginx", "PostgreSQL", "Bash", "Git", "Ansible", "iptables", "SNMP", "QoS", "VLAN", "WiFi", "Network", "DevOps", "Linux"]
 
 [[experience.item]]
 title = "Senior Software Engineer"
@@ -67,7 +67,7 @@ highlights = [
 "Developer on [Diabox](http://data.diabox.com/), an in-situ sensor box and web service, used primarily for weather data.",
 "Developer on [Naiad](http://naiad.ifremer.fr/) (Enhanced Satellite Archive Dataminer), an web application to visualise and process satellite data for the IFREMER institute. Prototyped various image filters on GPU using OpenCL."
 ]
-tags = ["C", "C++", "PHP", "Python", "Open-Source", "Qt", "Multi-Thread", "Container", "Virtualisation", "OpenCL", "Mac", "Windows", "Linux"]
+tags = ["C", "C++", "PHP", "Python", "Open-Source", "Qt", "Multi-Thread", "LXC", "OpenVZ", "libvirt", "KVM", "OpenCL", "Mac", "Windows", "Linux"]
 
 [[experience.item]]
 title = "Internship"

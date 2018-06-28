@@ -38,9 +38,9 @@ purge:
          -H "X-Auth-Email: $(user)" \
          -H "X-Auth-Key: $(key)" \
          -H "Content-Type: application/json" \
-         --data '{"files":[' \
-          '"http://flo.click/resume/cv_en_florian_vichot.html",' \
-          '"http://flo.click/resume/cv_fr_florian_vichot.html",' \
-          '"http://flo.click/resume/css/all.css"' \
-          ']}' >/dev/null \
+         --data '{"files":['\
+'"http://flo.click/resume/cv_en_florian_vichot.html",'\
+'"http://flo.click/resume/cv_fr_florian_vichot.html",'\
+'"http://flo.click/resume/css/all.css"'\
+']}' > /dev/null \
          && echo "Cloudflare cache purged!"
