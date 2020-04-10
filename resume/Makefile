@@ -11,15 +11,16 @@ ifeq ($(UNAME_S),Darwin)
 #    CHROME_APP := /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
     CHROME_APP := /Applications/Chromium.app/Contents/MacOS/Chromium
 #    TO_PDF = $(CHROME_APP) --headless --disable-gpu --content-shell-host-window-size=1200x1024 \
-                           --print-to-pdf=$@ $<
-    TO_PDF = wkhtmltopdf --dpi 360 --print-media-type $< $@
+                           # --print-to-pdf=$@ $<
+    TO_PDF = wkhtmltopdf --dpi 330 --print-media-type $< $@
 endif
 
 include ~/.cloudflare_rc
 
 FILES = cv_en_florian_vichot.html cv_fr_florian_vichot.html
 FILES_PDFS = $(FILES:%.html=pdf/%.pdf)
-TEMPLATE = templates/cv_html.tmpl
+# TEMPLATE = templates/cv_html.tmpl
+TEMPLATE = templates/oz_cv_html.tmpl
 
 all: $(FILES_PDFS) $(FILES)
 
@@ -32,7 +33,7 @@ pdf/%.pdf: %.html Makefile
 	$(TO_PDF)
 	echo Generated $@
 
-# For some reason, purge_enverything doesn't work, so purge each page...
+# For some reason, purge_everything doesn't work, so purge each page...
 purge:
 	curl -s -X DELETE "https://api.cloudflare.com/client/v4/zones/$(zone)/purge_cache" \
          -H "X-Auth-Email: $(user)" \

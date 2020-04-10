@@ -1,13 +1,13 @@
 [header]
-lang = "en"
+lang = "fr"
 title = "Florian Vichot - CV"
 headline = "Florian Vichot"
-subtext = "software engineer"
-location = "Sydney, Australia"
-visa = "Australian resident"
+subtext = "développeur polyvalent"
+location = "Sydney, Australie"
+visa = "Résident australien"
 phone = "+61 402 936 579"
 email = "florian.vichot@gmail.com"
-description = "An accomplished software engineer, I have over ten years of experience, comprising both development and operations. Fluent in multiple programming languages and technologies, I primarily aim to be versatile, and to be able to efficiently solve a broad range of problems. While particularly drawn to SRE, DevOps, Infrastructure or Backend Engineer roles, I welcome all opportunities that would allow me to work on challenging and varied problems as part of a talented team. Organisations implicated in open-source projects or tackling social issues are especially attractive."
+description = "Développeur expérimenté avec plus d'une dizaine d'années d'expérience, aussi bien en développement qu'en opérations. À l'aise avec des langages tels que le C, le C++ ou le Python, j'aspire avant tout à être polyvalent et à savoir résoudre une grande variété de problème, comme en témoigne la richesse de mon parcours. Intéressé principalement par des roles de devOps, ingénieur backend ou infrastructure, je suis ouvert à toutes propositions me permettant de travailler sur des problèmes épineux au sein d'une équipe talentueuse. Je suis en particulier attiré par la possibilité de travailler sur des projets open-source ou avec une composante sociale ou humanitaire."
 
 github = "[fvichot](https://github.com/fvichot)"
 stackoverflow = "[florian](http://stackoverflow.com/users/2984/florian)"
@@ -25,24 +25,13 @@ skills = [
 ###################################################################################################
 
 [experience]
-headline = "Experience"
-
-[[experience.item]]
-title = "Senior Site Reliability Engineer"
-company = "[Cisco Meraki](https://meraki.cisco.com/)"
-location = "Sydney, Australia"
-date = "March 2019 to now"
-highlights = [
-"On-call for ~1500 servers, hosting services for 7 million devices providing connectivity to 12 million users.",
-"Leading the design and implementation of our *Kubernetes* platform, based on *EKS*, and provisioned with *Terraform*.",
-]
-tags = ["Ruby", "Ansible", "Bash", "Git", "PostgreSQL", "Kubernetes", "Docker", "Terraform", "AWS"]
+headline = "Expérience"
 
 [[experience.item]]
 title = "DevOps Engineer"
 company = "[VMTech](https://vmtech.com.au/)"
 location = "Sydney, Australia"
-date = "August 2018 to February 2019"
+date = "August 2018 to now"
 highlights = [
 "Development from scratch of a customer-facing dashboard showing live stats, using *Python*, *SQLAlchemy* and *Flask*, using APIs from Splunk, ElasticSearch, ScienceLogic EM7, CommVault and ServiceNow.",
 "Improving automation scripts (a mix of *Node.js*, *Python*, *Bash*) for monthly report generation.",
@@ -50,19 +39,30 @@ highlights = [
 tags = ["Python", "Flask", "Gunicorn", "Nginx", "Frontend", "SQL-Server", "Bash", "Git", "Docker", "DevOps", "ITIL"]
 
 [[experience.item]]
-title = "Infrastructure & Automation Engineer"
+title = "Ingénieur Infrastructure et Réseau"
 company = "[Wifirst](http://wifirst.fr/)"
 location = "Paris, France"
-date = "April 2016 to May 2018"
+date = "avril 2016 à mai 2018"
 highlights = [
-"Management of over 10,000 *Linux* routers, providing internet to ~500,000 people, using *Ansible*.",
+"Gestion d'un parc de 10 000 routers Linux, qui fournissent internet à ~500 000 personnes, avec *Ansible*.",
+"",
+
 "Developing *Python*/*Bash* services to configure *iptables*, routes, and supervision on Linux routers.",
 "Designing and evolving our monitoring infrastructure for a large volume of data (150,000 devices supervised) using *Python*, *Nginx*, *Django*, *PostgreSQL*, *Redis*.",
 "Automating & optimising image builds through *Jenkins*, which were tested using *LXC* and *Docker*.",
 "Writing code to configure various network equipment: *Cisco*, *Zyxel*, *DLink*.",
 "[Speaker](https://www.youtube.com/watch?v=0uasvz2DYos) at PyCon France 2017.",
+
+
+"Correction de bugs et ajouts de fonctionnalité sur les services opérants dans le routeur déployé chez les clients, basé sur un Linux Debian, en charge du controle d'accès et de la qualité de service.",
+"Maintien en condition opérationnelle d'une flotte d'environ 6 000 routeurs, déploiement de mise à jour par Ansible, sécurisation. Création d'outils pour faciliter cette tache.",
+"Évaluation et selection de nouvelles bases matérielle pour le routeur Wifirst.",
+"Portage des services et l'OS du routeur vers une nouvelle architecture, basée sur un SoC Broadcom.",
+"Ajout de fonctionalités et correction de bug sur les logiciels internes, tel que notre interface de supervision, ou notre outil de gestion de configuration.",
+"[Orateur](https://www.youtube.com/watch?v=0uasvz2DYos) à la PyCon France 2017"
+
 ]
-tags = ["Python", "Django", "Nginx", "PostgreSQL", "Bash", "Git", "Ansible", "iptables", "Docker", "Jenkins", "Cisco", "Network", "DevOps", "Linux"]
+tags = ["Python", "Django", "Nginx", "PostgreSQL", "Bash", "Git", "Ansible", "iptables", "Docker", "Jenkins", "Cisco", "Réseau", "DevOps", "Linux"]
 
 [[experience.item]]
 title = "Senior Software Engineer"

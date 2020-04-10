@@ -40,7 +40,7 @@
 			<span class="section-item-title">{{ item.title }}</span>{% if item.company is defined %}<span class="section-item-company">{{ item.company|linkify }}</span>{% endif %}{% if item.location is defined %}<span class="section-item-location">{{ item.location }}</span>{% endif %}<span class="section-item-date">{{ item.date }}</span>
 			<ul class="section-item-highlights">
 			{% for highlight in item.highlights %}
-			<li>{{ highlight|linkify }}</li>{% endfor %}
+			<li>{{ highlight|linkify|bold }}</li>{% endfor %}
 		  </ul>
 			<ul class="section-item-skills list-inline">
 			{% for tag in item.tags %}<li>{{ tag }}</li>{% endfor %}

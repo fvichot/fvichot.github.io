@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="{{ header.lang }}">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ header.title }}</title>
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/all.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+    <div id="title" class="col-xs-12 col-sm-7 col-print-8 text-center"><h1>{{ header.headline }}<small>{{ header.subtext }}</small></h1></div>
+    <div class="no-print visible-xs col-xs-4"></div>
+    <div id="infos" class="col-xs-4 col-sm-4 col-print-4 text-right">
+        <div></span><span id="phone">{{ header.location }}</span></div>
+        <div><span id="visa">{{ header.visa }}</span></div>
+        <div><span id="phone">{{ header.phone }}</span></div>
+        <div></span><a href="mailto:{{ header.email }}" id="email">{{ header.email }}</a></div>
+        <div>
+            {{ icon("linkedin") }}{{ header.linkedin|linkify }}
+            {{ icon("github") }}{{ header.github|linkify }}
+            {{ icon("stackoverflow") }}{{ header.stackoverflow|linkify }}
+        </div>
+    </div>
+    <div id="pdf" class="no-print col-xs-1 col-sm-1"><a href="pdf/{{ output|basename }}.pdf">{{ icon("pdf", "big-icon") }}PDF</a></div>
+    </div>
+    <div class="row">
+    <div id="summary" class="col-xs-12">{{ header.description }}</div>
+    </div>
+
+<!-- ============================================================================ -->
+
+<div class="section">
+    <div class="section-header row"><h2 class="headline">{{ skills.headline }}</h2></div>
+        <ul  class="section-item-highlights">
+            {% for item in header.skills %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+</div>
+
+<!-- ============================================================================ -->
+
+{% macro section_with_tags(item) %}
+<div class="section-item row experience">
+    <div class="section-item-content col-xs-12">
+        <span class="section-item-title">{{ item.title }}</span>{% if item.company is defined %}<span class="section-item-company">{{ item.company|linkify }}</span>{% endif %}{% if item.location is defined %}<span class="section-item-location">{{ item.location }}</span>{% endif %}<span class="section-item-date">{{ item.date }}</span>
+        <ul class="section-item-highlights">
+        {% for highlight in item.highlights %}
+          <li>{{ highlight|linkify|bold }}</li>{% endfor %}
+        </ul>
+        <ul class="section-item-skills list-inline">
+        {% for tag in item.tags %}<li>{{ tag }}</li>{% endfor %}
+        </ul>
+    </div>
+</div>
+{% endmacro %}
+
+<!-- ============================================================================ -->
+
+    <div class="section">
+    <div class="section-header row" id="experience"><h2 class="headline">{{ experience.headline }}</h2></div>
+    {% for item in experience.item %}{{ section_with_tags(item) }}{% endfor %}
+    </div>
+
+<!-- ============================================================================ -->
+
+<div class="section">
+<div class="section-header row"><h2 class="headline">{{ projects.headline }}</h2></div>
+
+    {% for item in projects.item %}
+    {{ section_with_tags(item) }}
+    {% endfor %}
+
+</div>
+
+<!-- ============================================================================ -->
+
+<div class="section">
+<div class="section-header row"><h2 class="headline">{{ languages.headline }}</h2></div>
+<ul class="section-item-highlights">
+    {% for item in languages.item %}
+    <li><b>{{ item.name }}</b>: {{ item.level }}</li>
+    {% endfor %}
+</ul>
+</div>
+
+<!-- ============================================================================ -->
+
+<div class="section">
+<div class="section-header row"><h2 class="headline">{{ education.headline }}</h2></div>
+<div id="education" class="section-item-highlights">
+<ul>
+    {% for item in education.highlights %}
+    <li>{{ item|linkify }}</li>
+    {% endfor %}
+</ul>
+</div>
+</div>
+
+<!-- ============================================================================ -->
+
+<div class="section">
+<div class="section-header row"><h2 class="headline">{{ publications.headline }}</h2></div>
+
+{% for item in publications.item %}
+<div class="section-item row" id="article_inria">
+    <div class="section-item-content col-xs-12">
+        <span class="section-item-title">{{ item.title|linkify }}</span><span class="section-item-location">{{ item.publisher }}</span><span class="section-item-date">{{ item.date }}</span>
+        <div>
+            <div class="pub-authors">{{ publications.authors }}: {{ item.authors }}</div>
+            <blockquote class="pub-abstract">{{ publications.abstract }}: {{ item.abstract }}</blockquote>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+
+<!-- ============================================================================ -->
+</div>
+</body>
+
+</html>

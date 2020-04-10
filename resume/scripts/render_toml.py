@@ -9,6 +9,7 @@ import toml
 import re
 
 LINKIFY_REGEX = re.compile('\[([^\]]+)\]\(([^\)]+)\)')
+BOLD_REGEX = re.compile('\*([^*]+?)\*')
 
 
 def filter_linkify(value):
@@ -18,10 +19,23 @@ def filter_linkify(value):
     return Markup(LINKIFY_REGEX.sub(replace, value or ""))
 
 
+def filter_bold(value):
+    def replace(m):
+        text = str(escape(m.group(1)))
+        return '<span class="highlight">' + text + '</span>'
+    return Markup(BOLD_REGEX.sub(replace, value or ""))
+
+
 def filter_basename(value):
     i = value.rfind('.')
     return value if i == -1 else value[:i]
 
+
+def global_icon(name, css_class="icon"):
+    icon_data = ""
+    with open('img/{}.svg'.format(name), 'rb') as file:
+        icon_data = file.read().decode("utf-8")
+    return Markup(icon_data.replace("<svg", "<svg class={}".format(css_class)))
 
 def main():
     parser = argparse.ArgumentParser(description="Render a TOML file using "
@@ -38,8 +52,10 @@ def main():
     env = Environment(loader=FileSystemLoader('.'),
                       autoescape=select_autoescape(['tmpl']))
 
+    env.filters['bold'] = filter_bold
     env.filters['linkify'] = filter_linkify
     env.filters['basename'] = filter_basename
+    env.globals["icon"] = global_icon
 
     template = env.get_template(args.template)
     with open(args.output[0], "wb+") as f:

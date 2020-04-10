@@ -1,3 +1,14 @@
+h2 {
+  margin-bottom: 0px;
+}
+
+.highlight {
+  font-weight: 900;
+  /*text-shadow: 1px 1px 1px rgba(0,0,0,0.1);*/
+  /*box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black;*/
+  /*border-bottom: 1px solid black;*/
+}
+
 body {
     margin-bottom: 50px;
     line-height: 1.2;
@@ -62,11 +73,26 @@ body {
   font-size: 30px;
 }
 
+svg.big-icon {
+  min-width: 24px;
+}
+
+svg.icon {
+  width: 12px;
+  height: 14px;
+  margin-right: 3px;
+  margin-bottom: -2px;
+}
+
 .section-header h2{
   padding: 0 5px 1px 0;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
+}
+
+.section-header {
+  margin-bottom: 5px;
 }
 
 .headline {
@@ -92,18 +118,14 @@ body {
 }
 
 .section-item {
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
 }
 
 .section-item-highlights {
   margin-top: 3px;
   vertical-align: middle;
-  list-style-type: none;
   margin-bottom: 10px;
-}
-
-.section-item-highlights li {
-  
+  list-style-type: none;
 }
 
 .section-item-highlights li::before {
@@ -246,6 +268,13 @@ ul.skill-content {
   .print-break-before {
     page-break-before: always;
     margin-top: 50px;
+  }
+  .section-item {
+    page-break-inside: avoid;
+  }
+
+  #infos {
+    margin-top: 0px;
   }
 
   .col-print-1,
