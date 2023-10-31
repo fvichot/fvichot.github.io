@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="{{ header.lang }}">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ header.title }}</title>
+
+<link rel="stylesheet" href="css/spectre.min.css">
+<link rel="stylesheet" href="css/spectre-exp.min.css">
+<link rel="stylesheet" href="css/spectre-icons.min.css">
+
+<style type="text/css">
+h1 {
+  margin-bottom: 5px;
+}
+
+h2 {
+  margin-bottom: 0px;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+body {
+    margin-bottom: 50px;
+    margin-top: 10px;
+    line-height: 1.2;
+    font-size:  14px;
+}
+
+#subtitle {
+  font-size: 50%;
+}
+
+#summary{
+  font-size: 16px;
+  margin-top: 15px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#pdf {
+  margin-top: 10px;
+}
+.container {
+  max-width: 750px
+}
+.section-item-highlights {
+  margin-top: 3px;
+  vertical-align: middle;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+.section-item-highlights li::before {
+  content: "\276F";
+  font-size: 12px;
+  margin-left: -10px;
+  margin-right: 5px;
+  position: relative;
+  top: -1px;
+}
+ul li {
+margin-top: 0;
+list-style-type: none;
+}
+
+
+  #education  ul {
+    margin-top: 0px;
+  }
+
+.section-item-location::before,
+.section-item-date::before {
+  content: " — ";
+}
+.section-item-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section-item-company,
+.section-item-location {
+  font-size: 13px;
+}
+
+.section-item-date {
+  font-style: italic;
+  font-size: 13px;
+  color: #777;
+}
+
+.section-item {
+  margin-bottom: 10px;
+}
+
+.section-header h2{
+  padding: 0 5px 1px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.section-header {
+  margin-bottom: 5px;
+  margin-left: 0px;
+}
+
+.headline {
+  width: 100%;
+  overflow: hidden;
+  color: #5755d9;
+  margin-top:20px;
+}
+
+.headline:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 3px;
+  border-top: 2px solid #dadee4;
+  width: 100%;
+  margin-right: -100%;
+  margin-left: 5px;
+}
+
+.timeline-content {
+margin-bottom: -2em;
+}
+#infos .icon {
+    margin-right: 2px;
+}
+.pub-authors {
+  font-size: 13px;
+  color: #777;
+  margin-left: 2px;
+}
+
+.pub-abstract {
+  font-size: 13px;
+  padding: 0 5px 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.timeline .timeline-item .timeline-icon.icon-sm {
+/*background: #dadee4;*/
+height: .6em;
+width: .6em;
+font-size: 1em;
+position: relative;
+top: .5em;
+left: .55em;
+}
+.timeline .timeline-item .timeline-icon.icon-sm::before {
+  border: .2rem solid var(--fbc-primary-text, #15141a);
+  top: 0px;
+  left: 1px;
+  position: relative;
+/*content: none;*/
+}
+
+@media print {
+  @page { 
+     margin-top: 30px;
+     margin-bottom: 15px;
+  }
+
+  body {
+    color: black;
+    -webkit-print-color-adjust: exact;
+    margin-bottom: 0;
+    /*margin: 1.6cm;*/
+    displayHeaderFooter: false;
+    font-size: 13px;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .section-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #infos {
+    margin-top: 0px;
+  }
+
+  #education {
+    margin-top: 40px;
+  }
+
+
+  .experience {
+    margin-bottom: 40px;
+  }
+
+  .section-item-highlights {
+    margin-bottom: 0px;
+  }
+
+ .col-print-1,
+  .col-print-2,
+  .col-print-3,
+  .col-print-4,
+  .col-print-5,
+  .col-print-6,
+  .col-print-7,
+  .col-print-8,
+  .col-print-9,
+  .col-print-10,
+  .col-print-11,
+  .col-print-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+  }
+
+  .col-print-1 {width:8%; }
+  .col-print-2 {width:16%;}
+  .col-print-3 {width:25%;}
+  .col-print-4 {width:33%;}
+  .col-print-5 {width:42%;}
+  .col-print-6 {width:50%;}
+  .col-print-7 {width:58%;}
+  .col-print-8 {width:66%;}
+  .col-print-9 {width:75%;}
+  .col-print-10{width:83%;}
+  .col-print-11{width:92%;}
+  .col-print-12{width:100%;}
+
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+    <div class="columns col-gapless">
+
+    <div id="title" class="column col-xs-12 col-6 col-print-8 text-center">
+      <h1>{{ header.headline }}
+      <br>
+      <small id="subtitle" class="label">{{ header.subtext }}</small>
+      </h1>
+    </div>
+    <div id="infos" class="column col-xs-8 col-5 col-print-4 text-right">
+        <div><span id="phone">{{ header.location }}</span></div>
+        <div><span id="visa">{{ header.visa }}</span></div>
+        <div><span id="phone">{{ header.phone }}</span></div>
+        <div><a href="mailto:{{ header.email }}" id="email">{{ header.email }}</a></div>
+        <div>
+            {{ icon("linkedin") }}{{ header.linkedin|linkify }}
+            {{ icon("github") }}{{ header.github|linkify }}
+        </div>
+    </div>
+    <div id="pdf" class="column no-print col-xs-4 col-1 text-center"><a href="pdf/{{ output|basename }}.pdf">{{ icon("pdf", "icon icon-3x") }}<br/>PDF</a></div>
+    </div>
+    <div class="columns">
+    <div id="summary" class="column col-12">{{ header.description | newline }}</div>
+    </div>
+
+<!-- ============================================================================ -->
+
+<div class="section">
+    <div class="section-header"><h2 class="headline text-dark">{{ skills.headline }}</h2></div>
+    <div class="columns">
+      <ul class="section-item-highlights">
+          {% for item in header.skills %}
+          <li class="column col-12">{{ item }}</li>
+          {% endfor %}
+      </ul>
+    </div>
+</div>
+
+<!-- ============================================================================ -->
+
+{% macro section_with_tags(item) %}
+<div class="section-item experience">
+  <div class="column section-item-content col-12">
+    {% if item.company is defined %}<span class="section-item-company">{{ item.company|linkify }}</span>{% endif %}{% if item.location is defined %}<span class="section-item-location">{{ item.location }}</span>{% endif %}
+    <div class="timeline">
+      {% for role in item.roles %}
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <a class="timeline-icon icon-sm"></a>
+        </div>
+        <div class="timeline-content">
+          <span class="section-item-title">{{ role.title }}</span><span class="section-item-date">{{ role.date }}</span>
+          <ul class="section-item-highlights">
+            {% for highlight in role.highlights %}
+            <li>{{ highlight|linkify|bold }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+      {#
+      <ul class="section-item-skills list-inline">
+        {% for tag in item.tags %}<span class="chip">{{ tag }}</span>{% endfor %}
+      </ul>
+      #}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+<!-- ============================================================================ -->
+
+<div class="section">
+  <div class="section-header" id="experience"><h2 class="headline text-dark">{{ experience.headline }}</h2></div>
+  {% for item in experience.entries %}{{ section_with_tags(item) }}{% endfor %}
+</div>
+
+<!-- ============================================================================ -->
+
+<!-- <div class="section">
+<div class="section-header"><h2 class="headline">{{ projects.headline }}</h2></div>
+
+    {% for item in projects.entries %}
+    {{ section_with_tags(item) }}
+    {% endfor %}
+
+</div> -->
+
+<!-- ============================================================================ -->
+
+<!-- <div class="section">
+  <div class="section-header"><h2 class="headline text-dark">{{ languages.headline }}</h2></div>
+  <ul class="section-item-highlights">
+    {% for item in languages.entries %}
+    <li><b>{{ item.name }}</b>: {{ item.level }}</li>
+    {% endfor %}
+  </ul>
+</div> -->
+
+<!-- ============================================================================ -->
+
+<div id="education" class="section">
+  <div class="section-header"><h2 class="headline text-dark">{{ education.headline }}</h2></div>
+  <div class="section-item-highlights">
+    <ul>
+      {% for item in education.highlights %}
+      <li>{{ item|linkify }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================================ -->
+
+<div class="section">
+  <div class="section-header"><h2 class="headline text-dark">{{ publications.headline }}</h2></div>
+
+  {% for item in publications.entries %}
+  <div class="section-item" id="article_inria">
+    <div class="column section-item-content col-12">
+      <span class="section-item-title">{{ item.title|linkify }}</span><span class="section-item-location">{{ item.publisher }}</span><span class="section-item-date">{{ item.date }}</span>
+      <div>
+        <div class="pub-authors">{{ publications.authors }}: {{ item.authors }}</div>
+        <blockquote class="pub-abstract">{{ item.abstract }}</blockquote>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+<!-- ============================================================================ -->
+</div>
+</body>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+  var p = new URL(document.baseURI).protocol;
+  console.log("p:", p);
+  if (p == "file:") {
+    // setTimeout(function(){ location.reload(); }, 5000);
+  }
+});
+</script>
+</html>

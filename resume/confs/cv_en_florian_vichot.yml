@@ -1,0 +1,219 @@
+header:
+  lang: "en"
+  title: "Florian Vichot - CV"
+  headline: "Florian Vichot"
+  subtext: "Principal Site Reliability Engineer"
+  location: "Melbourne, Australia"
+  visa: "French/Australian citizen"
+  phone: "+61 402 936 579"
+  email: "florian.vichot@gmail.com"
+  description: "An accomplished software engineer, I have over fifteen years of experience in both development and operations. Well-versed in multiple programming languages, tools and technologies, I'm also a seasoned technical leader and mentor. While mostly drawn to SRE roles, I welcome all opportunities that would allow me to work on challenging and varied problems as part of a talented team. Organisations building open-source software or serving the public interest are especially attractive."
+
+  github: "[fvichot](https://github.com/fvichot)"
+  stackoverflow: "[florian](http://stackoverflow.com/users/2984/florian)"
+  linkedin: "[fvichot](https://www.linkedin.com/in/fvichot/)"
+
+  skills:
+  - Track record of advancing code and infrastructure quality, performance and maintainability
+  - Skilled at navigating and mastering complex software codebases
+  - Dedicated to automate time-consuming and error-prone tasks
+  - Experienced in leading teams, acting as technical referent, mentoring other engineers
+  - Effective at helping teams plan and prioritise work, negotiating roadmaps with stakeholders
+  - Pragmatic approach to complex problems, from tactical short-term goals to long-term strategic vision
+
+###################################################################################################
+
+experience:
+  headline: Experience
+  entries:
+  - company: "[Cisco Meraki](https://meraki.cisco.com/)"
+    location: "Remote, Australia"
+    tags: ["Ruby", "Python", "Ansible", "Terraform", "Kubernetes", "AWS", "Mentoring", "System Design", "On-call"]
+    roles:
+    - title: "Principal Engineer - SRE"
+      date: "February 2023 to now"
+      highlights:
+      - Acted as *technical advisor* for Platform Engineering, a grouping of 7 SRE teams, by building a shared vision, reviewing solutions, unblocking engineers, initiating workgroups, promoting cross-collaboration.
+      - "*Mentored* several Technical Leads, with weekly one-on-ones with each to discuss technical challenges, career aspirations and leadership development."
+      - Continued to help lead the monolith transition into Kubernetes, by *running sprints*, writing *design docs*, contributing code, reviewing solutions, giving progress demos to stakeholders.
+    - title: "Senior Technical Leader - SRE"
+      date: "May 2021 to February 2023"
+      highlights:
+      - Continued to lead the Kubernetes implementation. Grew it to over 40 clusters worldwide, including *AWS China*, and *FedRAMP*-certified clusters. Added support for *ArgoCD*, *ingress-nginx* and *AWS BYOIP*.
+      - Identified a memory leak in the Linux kernel as the source of server crashes using *bpftrace* and the *crash* kernel debugger. Implemented a remediation as a *kernel module*, which over 18 months mitigated over 25,000 leaks, avoiding thousands of server crashes.
+      - Kick-started a *multi-year initiative* to migrate our monolith from bare-metal into Kubernetes, using custom tools and services. Co-lead a squad of engineers to implement an *MVP*.
+    - title: "Technical Leader - SRE"
+      date: "March 2019 to May 2021"
+      highlights:
+      - Led the design and implementation of Meraki's EKS-based *Kubernetes* platform, provisioned using *Terraform* and *Helm*. It included *Grafana* SLO/SLI dashboards, *Fluentd/Kinesis* logging pipeline, *Okta* authentication, *Statsd*/*Prometheus* metrics collection, *Gitlab* CI deployments, *Kyverno* admission control, strict default *Pod Security Policies* and *Network Policies*.
+      - Designed and implemented a *Haproxy*-based on-prem proxy infrastructure, for exposing customer-facing services running in EKS on IP ranges owned by Meraki. At peak, it was handling 3 million concurrent connections.
+      - "*On-call* in a follow-the-sun schedule. Triaged *PagerDuty* alerts, investigated root-causes, deployed remediations or rollbacks, ran post-mortems."
+
+  - company: "[VMTech](https://vmtech.com.au/)"
+    location: "Sydney, Australia"
+    tags: ["Python", "Flask", "Gunicorn", "Nginx", "Frontend", "SQL-Server", "Bash", "Git", "Docker", "DevOps", "ITIL"]
+    roles:
+    - title: "DevOps Engineer"
+      date: "August 2018 to February 2019"
+      highlights:
+      - "Design and implementation of a customer-facing graphs dashboard, using *Python*, *SQLAlchemy* and *Flask*, using APIs from Splunk, ElasticSearch, ScienceLogic EM7, CommVault and ServiceNow."
+      - Improving automation scripts (a mix of Node.js, Python, Bash) for monthly report generation.
+
+
+  - company: "[Wifirst](http://wifirst.fr/)"
+    location: "Paris, France"
+    tags: ["Python", "Django", "Nginx", "PostgreSQL", "Ansible", "iptables", "Docker", "Network", "DevOps", "Linux"]
+    roles:
+    - title: "Infrastructure & Automation Engineer"
+      date: "April 2016 to May 2018"
+      highlights:
+      - "Management of over 10,000 *Linux* routers using *Ansible*, to provide internet to ~500,000 users."
+      - "Developing *Python*/*Bash* services to configure *iptables*, routes, and supervision on Linux routers."
+      - "Designing and evolving our monitoring infrastructure for a large volume of data (150,000 devices supervised) using *Python*, *Nginx*, *Django*, *PostgreSQL*, *Redis*."
+      - "Writing code to configure various network equipment: *Cisco*, *Zyxel*, *DLink*."
+      - "[Speaker](https://www.youtube.com/watch?v=0uasvz2DYos) at PyCon France 2017."
+    
+
+  - company: "[Inria, Asclepios Lab](https://team.inria.fr/asclepios/)"
+    location: "Sophia-Antipolis, France"
+    tags: ["C++", "Python", "CMake", "Jenkins", "CI/CD", "Open-Source", "Qt", "VTK", "ITK", "Mac", "Windows", "Linux"]
+    roles:
+    - title: "Senior Software Engineer"
+      date: "March 2012 to April 2015"
+      highlights:
+      - "Lead developer on [medInria](http://med.inria.fr), a *C++*/*Qt* open-source medical image visualisation, processing and manipulation software, to add cardiac related functionalities."
+      - "Setup *CI/CD* using *Jenkins*, to test and build software on *Debian*, *Fedora*, *OSX* and *Windows 7+*."
+      - "Improved the reliability of medInria and its code quality by instituting code-reviews and a pull-request based workflow. Migrated the project to *GitHub*, reorganised, cleaned and simplified the source code, re-architected and updated the build/test system."
+      - "Evolved medInria's architecture to handle new functionalities, and transformed it into a framework for other projects using a plugin system."
+      - "Attended and presented at conferences (MICCAI), workshops (CTK), and contributed to scientific articles."
+
+  - company: "[Telecoms Without Borders](http://www.tsfi.org/)"
+    location: "Pau, France"
+    tags: ["Perl", "Python", "Bash", "iptables", "System administration", "Networks", "Satellites", "Linux"]
+    roles:
+    - title: "Systems & Network Engineer"
+      date: "Sept. 2010 to Oct. 2011, April 2015"
+      highlights:
+      - "Deployed on various international missions in response to humanitarian emergencies: floods, influx of refugees, cyclone, conflict or famine, for a total of 5 months on mission. Established telephone operations for populations, installed *network and satellite equipment* for NGOs and the UN. Provided trainings."
+      - "Maintained and evolved the NGO's infrastructure (*website*, *email servers*, *storage server*, *equipment database*, *OpenBSD firewall*)."
+      - "Contributed to the TSFBox, a custom *Linux* router facilitating monitoring and optimization of internet connections provided during missions, with services written in *Perl*."
+    
+  - company: "[Diateam](http://www.diateam.net/)"
+    location: "Brest, France"
+    tags: ["C", "C++", "Python", "Qt", "LXC", "Threads", "KVM", "OpenCL", "Open-Source", "Mac", "Windows", "Linux"]
+    roles:
+    - title: "Software Engineer"
+      date: "June 2008 to April 2010, July/August 2007"
+      highlights:
+      - "Implemented a multithread RPC framework in *C++/Qt4*, and its *code generator* and *test suite*."
+      - "Lead developer on the Hynesim open source project (Hybrid Network Simulator): implementation in *C++/Qt4* of virtual network components, custom GUI widget and of wrappers around different virtualization technologies (*OpenVZ/LXC* containers, *Qemu/KVM* VMs) using *livbirt*. Speaker for conferences at OSSIRB and Hack.lu 2008."
+      - "Contributor to IpMorph : *TCP/IP stack* fingerprint spoofing for *containers* and *VMs*. Speaker during Hack.lu 2009. Co-authored a publication."
+
+  # - company: "[Cognitive Robotics Lab (ENSTA)](http://cogrob.ensta-paristech.fr/)"
+  #   location: "Paris, France"
+  #   tags: ["C", "C++", "Urbi", "SVN", "Machine-Learning", "Linux", "Robotics"]
+  #   roles:
+  #   - title: "Internship"
+  #     date: "Sept. 2007 to Jan. 2008"
+  #     highlights:
+  #     - "Implemented visual homing and localization *algorithms* using *\"bags of visual words\"* in [Urbi](https://en.wikipedia.org/wiki/URBI), as part of a topological navigation framework."
+  #     - "Ported the Urbi environment to a P3-DX robot."
+  #     - "This work was included in a [scientific publication](https://hal-ensta.archives-ouvertes.fr/hal-00641356)."
+
+
+# ###################################################################################################
+
+projects:
+  headline: Personal Projects
+
+  entries:
+  - title: "Home lab on RPi cluster"
+    date: "2018 to now"
+    highlights: [
+    "Experiments in self-hosting, container orchestration and home automation."
+    ]
+    tags: ["Raspbian", "Alpine", "Docker", "Docker-swarm", "Docker-compose", "NextCloud", "NAS"]
+
+  - title: "Robotics Club"
+    company: "[ENIB](https://www.enib.fr/)"
+    location: "Brest, France"
+    date: "2004 to 2010"
+    highlights: [
+    "Club secretary: sponsors engagement, communication, project management.",
+    "Lead developer on the robot's software (simulator, sensor acquisition, path planning, motor control)"
+    ]
+    tags: ["C", "C++", "Qt", "OpenGL", "SVN", "Linux", "Embedded", "Robotics", "Algorithms"]
+
+  - title: "Server management"
+    date: "2011 to 2015"
+    highlights: [
+    "Server administrator for a club: configuration, security, supervision."
+    ]
+    tags: ["Linux Debian", "iptables", "Apache", "PHP", "OwnCloud", "Zimbra", "OpenVPN", "IMAP", "SMTP", "LVM", "LUKS", "KVM", "LXC", "RAID"]
+
+# ###################################################################################################
+
+skills:
+  headline: Skills
+  high: Excellent
+  medium: Good
+  low: Basic
+
+  entries:
+  - headline: "Languages"
+    high: ["C", "C++", "Python2/3", "Bash"]
+    medium: ["Go", "JavaScript", "Java", "Octave"]
+    low: ["Rust", "Haskell"]
+
+  - headline: "Tools and concepts"
+    high: ["Git", "Django", "Debugging", "CMake", "Qt", "Multi-threading", "CI/CD"]
+    medium: ["OpenCL", "SQL", "Algorithms", "Optimisation"]
+
+  - headline: "Networks & Servers"
+    high: ["Internet protocols", "Sysadmin", "Server security"]
+    medium: ["SSL", "OpenVPN", "IPSec", "AWS", "Satellite systems"]
+
+  - headline: "Platforms"
+    high: ["Linux (Debian/Fedora)", "Mac OS X", "Windows 7/8/10"]
+    medium: ["Cisco IOS", "ZynOS", "Digi"]
+    low: ["OpenBSD", "JunOS"]
+
+# ###################################################################################################
+
+languages:
+  headline: "Languages"
+
+  entries:
+  - name: "French"
+    level: "Fluent (French citizen)"
+  - name: "English"
+    level: "Fluent (studied for three years in the UK, TOEFL iBT: 119/120, PTE: 90/90)"
+  - name: "Spanish"
+    level: "Intermediate (six months in South America)"
+
+# ###################################################################################################
+
+education:
+  headline: "Education"
+  highlights:
+  - "[ENIB](https://www.enib.fr/en/), National Engineering School of Brest, France from 2003 to 2008 (Master's Degree in Engineering)."
+
+# ###################################################################################################
+
+publications:
+  headline: Publications
+  authors: Authors
+  abstract: Summary
+
+  entries:
+  - title: "[Cardiac Interventional Guidance using Multimodal Data Processing and Visualisation: medInria as an Interoperability Platform](https://hal.inria.fr/hal-00813873/)"
+    publisher: "Midas Journal"
+    date: "2012"
+    authors: "F. Vichot, H. Cochet, B. Bleuzé, N. Toussaint, P. Jaïs, M. Sermesant"
+    abstract: "MedInria is a medical imaging application developed at Inria, which aims to provide clinicians with state-of-the-art algorithms for processing and visualising their images. In this article, we focus on its use in pre-surgery preparation for cardiac interventions, and the difficulties arising from the lack of standardisation of certain data formats and visualisation conventions."
+
+  - title: "[IpMorph: fingerprinting spoofing unification](http://link.springer.com/article/10.1007/s11416-009-0134-4#/page-1)"
+    publisher: "Journal in computer virology 6, no. 4"
+    date: "2010"
+    authors: "G. Prigent, F. Vichot, F. Harrouet"
+    abstract: "Nowadays, there are a variety of tools for easily identifying the TCP/IP stack's fingerprint of a target machine. IpMorph allows this fingerprint to be concealed, and even mimicks the fingerprint of a chosen TCP/IP stack. This is done through live session tracking and packet rewriting. Its effectiveness against tools such as Nmap, Xprobe2, Ring2, SinFP and p0f is also detailed."

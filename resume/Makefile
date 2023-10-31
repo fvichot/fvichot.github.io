@@ -8,11 +8,11 @@ ifeq ($(UNAME_S),Linux)
                       --print-to-pdf=$@ file://$(PWD)/$<
 endif
 ifeq ($(UNAME_S),Darwin)
-#    CHROME_APP := /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
-    CHROME_APP := /Applications/Chromium.app/Contents/MacOS/Chromium
-#    TO_PDF = $(CHROME_APP) --headless --disable-gpu --content-shell-host-window-size=1200x1024 \
-                           # --print-to-pdf=$@ $<
-    TO_PDF = wkhtmltopdf --dpi 330 --print-media-type $< $@
+    CHROME_APP := /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+#     CHROME_APP := /Applications/Chromium.app/Contents/MacOS/Chromium
+    TO_PDF = $(CHROME_APP) --headless --disable-gpu --content-shell-host-window-size=1200x1024 \
+                            --print-to-pdf=$@ $<
+#     TO_PDF = wkhtmltopdf --dpi 330 --print-media-type $< $@
 endif
 
 include ~/.cloudflare_rc
@@ -20,12 +20,12 @@ include ~/.cloudflare_rc
 FILES = cv_en_florian_vichot.html cv_fr_florian_vichot.html
 FILES_PDFS = $(FILES:%.html=pdf/%.pdf)
 # TEMPLATE = templates/cv_html.tmpl
-TEMPLATE = templates/oz_cv_html.tmpl
+TEMPLATE = templates/new_cv_html.tmpl
 
 all: $(FILES_PDFS) $(FILES)
 
-%.html: confs/%.toml $(TEMPLATE) css/all.css css/bootstrap.css css/font-awesome.css scripts/render_toml.py Makefile
-	scripts/render_toml.py -t $(TEMPLATE) $< $@
+%.html: confs/%.yml $(TEMPLATE) css/all.css css/bootstrap.css scripts/render_toml.py Makefile
+	scripts/render_yml.py -t $(TEMPLATE) $< $@
 	echo Generated $@
 
 pdf/%.pdf: %.html Makefile
