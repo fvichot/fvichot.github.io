@@ -20,7 +20,7 @@ h2 {
 }
 
 .highlight {
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 body {
@@ -28,6 +28,15 @@ body {
     margin-top: 10px;
     line-height: 1.2;
     font-size:  14px;
+    color: rgba(0,0,0,0.9);
+}
+
+a {
+  color: rgb(51, 122, 183);
+}
+
+a:visited {
+  color: revert;
 }
 
 #subtitle {
@@ -54,7 +63,8 @@ body {
   list-style-type: none;
 }
 .section-item-highlights li::before {
-  content: "\276F";
+  /*content: "\276F";*/
+  content: "-";
   font-size: 12px;
   margin-left: -10px;
   margin-right: 5px;
@@ -82,7 +92,7 @@ list-style-type: none;
 
 .section-item-company,
 .section-item-location {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .section-item-date {
@@ -153,11 +163,15 @@ top: .5em;
 left: .55em;
 }
 .timeline .timeline-item .timeline-icon.icon-sm::before {
-  border: .2rem solid var(--fbc-primary-text, #15141a);
+  border: .2rem solid #dadee4;
   top: 0px;
   left: 1px;
   position: relative;
 /*content: none;*/
+}
+
+.timeline .timeline-item:last-of-type::before {
+  content: inherit;
 }
 
 @media print {
@@ -170,6 +184,7 @@ left: .55em;
     color: black;
     -webkit-print-color-adjust: exact;
     margin-bottom: 0;
+    margin-top: 0;
     /*margin: 1.6cm;*/
     displayHeaderFooter: false;
     font-size: 13px;
@@ -234,6 +249,8 @@ left: .55em;
   .col-print-12{width:100%;}
 
 }
+
+
 </style>
 
 </head>

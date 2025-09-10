@@ -2,21 +2,19 @@ header:
   lang: "en"
   title: "Florian Vichot - CV"
   headline: "Florian Vichot"
-  subtext: "Principal Site Reliability Engineer"
-  location: "Melbourne, Australia"
-  visa: "French/Australian citizen"
+  subtext: "Principal Engineer"
+  location: "Geelong, Australia"
+  visa: "Dual citizenship, French/Australian"
   phone: "+61 402 936 579"
   email: "florian.vichot@gmail.com"
-  description: "An accomplished software engineer, I have over fifteen years of experience in both development and operations. Well-versed in multiple programming languages, tools and technologies, I'm also a seasoned technical leader and mentor. While mostly drawn to SRE roles, I welcome all opportunities that would allow me to work on challenging and varied problems as part of a talented team. Organisations building open-source software or serving the public interest are especially attractive."
+  description: "An accomplished software engineer, I have over fifteen years of experience in both development and operations. Well-versed in multiple programming languages, tools and technologies, I'm also a seasoned technical leader and mentor. I'm drawn to roles offering challenging and varied problems as part of a talented and close-knit team. Organisations building open-source software or serving the public interest are especially attractive."
 
   github: "[fvichot](https://github.com/fvichot)"
-  stackoverflow: "[florian](http://stackoverflow.com/users/2984/florian)"
   linkedin: "[fvichot](https://www.linkedin.com/in/fvichot/)"
 
   skills:
   - Track record of advancing code and infrastructure quality, performance and maintainability
-  - Skilled at navigating and mastering complex software codebases
-  - Dedicated to automate time-consuming and error-prone tasks
+  - Dedicated to automating time-consuming and error-prone tasks
   - Experienced in leading teams, acting as technical referent, mentoring other engineers
   - Effective at helping teams plan and prioritise work, negotiating roadmaps with stakeholders
   - Pragmatic approach to complex problems, from tactical short-term goals to long-term strategic vision
@@ -31,21 +29,21 @@ experience:
     tags: ["Ruby", "Python", "Ansible", "Terraform", "Kubernetes", "AWS", "Mentoring", "System Design", "On-call"]
     roles:
     - title: "Principal Engineer - SRE"
-      date: "February 2023 to now"
+      date: "February 2023 to June 2025"
       highlights:
-      - Acted as *technical advisor* for Platform Engineering, a grouping of 7 SRE teams, by building a shared vision, reviewing solutions, unblocking engineers, initiating workgroups, promoting cross-collaboration.
-      - "*Mentored* several Technical Leads, with weekly one-on-ones with each to discuss technical challenges, career aspirations and leadership development."
-      - Continued to help lead the monolith transition into Kubernetes, by *running sprints*, writing *design docs*, contributing code, reviewing solutions, giving progress demos to stakeholders.
+      - Acted as the *technical advisor* for Platform Engineering, a grouping of 7 teams and 35 engineers, by building a shared vision, advising managers, unblocking projects, initiating workgroups, promoting cross-collaboration.
+      - "*Mentored* several Technical Leaders, with weekly one-on-ones to discuss technical challenges, career aspirations and leadership development."
+      - Continued to help lead the monolith transition into Kubernetes, by *organising work*, writing *design docs*, contributing code, reviewing solutions, giving progress demos to stakeholders.
     - title: "Senior Technical Leader - SRE"
       date: "May 2021 to February 2023"
       highlights:
-      - Continued to lead the Kubernetes implementation. Grew it to over 40 clusters worldwide, including *AWS China*, and *FedRAMP*-certified clusters. Added support for *ArgoCD*, *ingress-nginx* and *AWS BYOIP*.
-      - Identified a memory leak in the Linux kernel as the source of server crashes using *bpftrace* and the *crash* kernel debugger. Implemented a remediation as a *kernel module*, which over 18 months mitigated over 25,000 leaks, avoiding thousands of server crashes.
-      - Kick-started a *multi-year initiative* to migrate our monolith from bare-metal into Kubernetes, using custom tools and services. Co-lead a squad of engineers to implement an *MVP*.
+      - Continued to lead the Kubernetes implementation. Grew it to over 40 clusters worldwide, including *AWS China*, and *FedRAMP*-certified clusters. Hired and trained a team to take over this platform.
+      - Identified a memory leak in the Linux kernel as the source of server crashes using *bpftrace* and the *crash* kernel debugger. Implemented a remediation of last resort as a *kernel module*, which over 18 months mitigated over 25,000 leaks, avoiding thousands of server crashes.
+      - Kick-started a *multi-year initiative* to migrate our monolith from bare-metal into Kubernetes, using custom tools and services. 
     - title: "Technical Leader - SRE"
       date: "March 2019 to May 2021"
       highlights:
-      - Led the design and implementation of Meraki's EKS-based *Kubernetes* platform, provisioned using *Terraform* and *Helm*. It included *Grafana* SLO/SLI dashboards, *Fluentd/Kinesis* logging pipeline, *Okta* authentication, *Statsd*/*Prometheus* metrics collection, *Gitlab* CI deployments, *Kyverno* admission control, strict default *Pod Security Policies* and *Network Policies*.
+      - After extensive analysis of the container orchestration landscape, led the design and implementation of Meraki's EKS-based *Kubernetes* platform, provisioned using *Terraform* and *Helm*. It included *Grafana* SLO/SLI dashboards, *Fluentd/Kinesis* logging pipeline, *Okta* authentication, *Statsd*/*Prometheus* metrics collection, *Gitlab* CI deployments, *Kyverno* admission control, strict default *Pod Security Policies* and *Network Policies*.
       - Designed and implemented a *Haproxy*-based on-prem proxy infrastructure, for exposing customer-facing services running in EKS on IP ranges owned by Meraki. At peak, it was handling 3 million concurrent connections.
       - "*On-call* in a follow-the-sun schedule. Triaged *PagerDuty* alerts, investigated root-causes, deployed remediations or rollbacks, ran post-mortems."
 
@@ -94,8 +92,8 @@ experience:
     - title: "Systems & Network Engineer"
       date: "Sept. 2010 to Oct. 2011, April 2015"
       highlights:
-      - "Deployed on various international missions in response to humanitarian emergencies: floods, influx of refugees, cyclone, conflict or famine, for a total of 5 months on mission. Established telephone operations for populations, installed *network and satellite equipment* for NGOs and the UN. Provided trainings."
-      - "Maintained and evolved the NGO's infrastructure (*website*, *email servers*, *storage server*, *equipment database*, *OpenBSD firewall*)."
+      - "Deployed on various international missions in response to humanitarian emergencies: floods, influx of refugees, cyclone, conflict or famine, for a total of 5 months on mission. Established telephone operations for populations, installed *network and satellite equipment* for international relief organisations and the United Nations. Provided trainings."
+      - "Maintained and evolved TSF's infrastructure (*website*, *email servers*, *storage server*, *equipment database*, *OpenBSD firewall*)."
       - "Contributed to the TSFBox, a custom *Linux* router facilitating monitoring and optimization of internet connections provided during missions, with services written in *Perl*."
     
   - company: "[Diateam](http://www.diateam.net/)"

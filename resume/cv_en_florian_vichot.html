@@ -20,7 +20,7 @@ h2 {
 }
 
 .highlight {
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 body {
@@ -28,6 +28,15 @@ body {
     margin-top: 10px;
     line-height: 1.2;
     font-size:  14px;
+    color: rgba(0,0,0,0.9);
+}
+
+a {
+  color: rgb(51, 122, 183);
+}
+
+a:visited {
+  color: revert;
 }
 
 #subtitle {
@@ -54,7 +63,8 @@ body {
   list-style-type: none;
 }
 .section-item-highlights li::before {
-  content: "\276F";
+  /*content: "\276F";*/
+  content: "-";
   font-size: 12px;
   margin-left: -10px;
   margin-right: 5px;
@@ -82,7 +92,7 @@ list-style-type: none;
 
 .section-item-company,
 .section-item-location {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .section-item-date {
@@ -153,11 +163,15 @@ top: .5em;
 left: .55em;
 }
 .timeline .timeline-item .timeline-icon.icon-sm::before {
-  border: .2rem solid var(--fbc-primary-text, #15141a);
+  border: .2rem solid #dadee4;
   top: 0px;
   left: 1px;
   position: relative;
 /*content: none;*/
+}
+
+.timeline .timeline-item:last-of-type::before {
+  content: inherit;
 }
 
 @media print {
@@ -170,6 +184,7 @@ left: .55em;
     color: black;
     -webkit-print-color-adjust: exact;
     margin-bottom: 0;
+    margin-top: 0;
     /*margin: 1.6cm;*/
     displayHeaderFooter: false;
     font-size: 13px;
@@ -234,6 +249,8 @@ left: .55em;
   .col-print-12{width:100%;}
 
 }
+
+
 </style>
 
 </head>
@@ -244,12 +261,12 @@ left: .55em;
     <div id="title" class="column col-xs-12 col-6 col-print-8 text-center">
       <h1>Florian Vichot
       <br>
-      <small id="subtitle" class="label">Principal Site Reliability Engineer</small>
+      <small id="subtitle" class="label">Principal Engineer</small>
       </h1>
     </div>
     <div id="infos" class="column col-xs-8 col-5 col-print-4 text-right">
-        <div><span id="phone">Melbourne, Australia</span></div>
-        <div><span id="visa">French/Australian citizen</span></div>
+        <div><span id="phone">Geelong, Australia</span></div>
+        <div><span id="visa">Dual citizenship, French/Australian</span></div>
         <div><span id="phone">+61 402 936 579</span></div>
         <div><a href="mailto:florian.vichot@gmail.com" id="email">florian.vichot@gmail.com</a></div>
         <div>
@@ -260,7 +277,7 @@ left: .55em;
     <div id="pdf" class="column no-print col-xs-4 col-1 text-center"><a href="pdf/cv_en_florian_vichot.pdf"><svg class="icon icon-3x" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><br/>PDF</a></div>
     </div>
     <div class="columns">
-    <div id="summary" class="column col-12">An accomplished software engineer, I have over fifteen years of experience in both development and operations. Well-versed in multiple programming languages, tools and technologies, I'm also a seasoned technical leader and mentor. While mostly drawn to SRE roles, I welcome all opportunities that would allow me to work on challenging and varied problems as part of a talented team. Organisations building open-source software or serving the public interest are especially attractive.</div>
+    <div id="summary" class="column col-12">An accomplished software engineer, I have over fifteen years of experience in both development and operations. Well-versed in multiple programming languages, tools and technologies, I'm also a seasoned technical leader and mentor. I'm drawn to roles offering challenging and varied problems as part of a talented and close-knit team. Organisations building open-source software or serving the public interest are especially attractive.</div>
     </div>
 
 <!-- ============================================================================ -->
@@ -272,9 +289,7 @@ left: .55em;
           
           <li class="column col-12">Track record of advancing code and infrastructure quality, performance and maintainability</li>
           
-          <li class="column col-12">Skilled at navigating and mastering complex software codebases</li>
-          
-          <li class="column col-12">Dedicated to automate time-consuming and error-prone tasks</li>
+          <li class="column col-12">Dedicated to automating time-consuming and error-prone tasks</li>
           
           <li class="column col-12">Experienced in leading teams, acting as technical referent, mentoring other engineers</li>
           
@@ -305,14 +320,14 @@ left: .55em;
           <a class="timeline-icon icon-sm"></a>
         </div>
         <div class="timeline-content">
-          <span class="section-item-title">Principal Engineer - SRE</span><span class="section-item-date">February 2023 to now</span>
+          <span class="section-item-title">Principal Engineer - SRE</span><span class="section-item-date">February 2023 to June 2025</span>
           <ul class="section-item-highlights">
             
-            <li>Acted as <span class="highlight">technical advisor</span> for Platform Engineering, a grouping of 7 SRE teams, by building a shared vision, reviewing solutions, unblocking engineers, initiating workgroups, promoting cross-collaboration.</li>
+            <li>Acted as the <span class="highlight">technical advisor</span> for Platform Engineering, a grouping of 7 teams and 35 engineers, by building a shared vision, advising managers, unblocking projects, initiating workgroups, promoting cross-collaboration.</li>
             
-            <li><span class="highlight">Mentored</span> several Technical Leads, with weekly one-on-ones with each to discuss technical challenges, career aspirations and leadership development.</li>
+            <li><span class="highlight">Mentored</span> several Technical Leaders, with weekly one-on-ones to discuss technical challenges, career aspirations and leadership development.</li>
             
-            <li>Continued to help lead the monolith transition into Kubernetes, by <span class="highlight">running sprints</span>, writing <span class="highlight">design docs</span>, contributing code, reviewing solutions, giving progress demos to stakeholders.</li>
+            <li>Continued to help lead the monolith transition into Kubernetes, by <span class="highlight">organising work</span>, writing <span class="highlight">design docs</span>, contributing code, reviewing solutions, giving progress demos to stakeholders.</li>
             
           </ul>
         </div>
@@ -326,11 +341,11 @@ left: .55em;
           <span class="section-item-title">Senior Technical Leader - SRE</span><span class="section-item-date">May 2021 to February 2023</span>
           <ul class="section-item-highlights">
             
-            <li>Continued to lead the Kubernetes implementation. Grew it to over 40 clusters worldwide, including <span class="highlight">AWS China</span>, and <span class="highlight">FedRAMP</span>-certified clusters. Added support for <span class="highlight">ArgoCD</span>, <span class="highlight">ingress-nginx</span> and <span class="highlight">AWS BYOIP</span>.</li>
+            <li>Continued to lead the Kubernetes implementation. Grew it to over 40 clusters worldwide, including <span class="highlight">AWS China</span>, and <span class="highlight">FedRAMP</span>-certified clusters. Hired and trained a team to take over this platform.</li>
             
-            <li>Identified a memory leak in the Linux kernel as the source of server crashes using <span class="highlight">bpftrace</span> and the <span class="highlight">crash</span> kernel debugger. Implemented a remediation as a <span class="highlight">kernel module</span>, which over 18 months mitigated over 25,000 leaks, avoiding thousands of server crashes.</li>
+            <li>Identified a memory leak in the Linux kernel as the source of server crashes using <span class="highlight">bpftrace</span> and the <span class="highlight">crash</span> kernel debugger. Implemented a remediation of last resort as a <span class="highlight">kernel module</span>, which over 18 months mitigated over 25,000 leaks, avoiding thousands of server crashes.</li>
             
-            <li>Kick-started a <span class="highlight">multi-year initiative</span> to migrate our monolith from bare-metal into Kubernetes, using custom tools and services. Co-lead a squad of engineers to implement an <span class="highlight">MVP</span>.</li>
+            <li>Kick-started a <span class="highlight">multi-year initiative</span> to migrate our monolith from bare-metal into Kubernetes, using custom tools and services.</li>
             
           </ul>
         </div>
@@ -344,7 +359,7 @@ left: .55em;
           <span class="section-item-title">Technical Leader - SRE</span><span class="section-item-date">March 2019 to May 2021</span>
           <ul class="section-item-highlights">
             
-            <li>Led the design and implementation of Meraki's EKS-based <span class="highlight">Kubernetes</span> platform, provisioned using <span class="highlight">Terraform</span> and <span class="highlight">Helm</span>. It included <span class="highlight">Grafana</span> SLO/SLI dashboards, <span class="highlight">Fluentd/Kinesis</span> logging pipeline, <span class="highlight">Okta</span> authentication, <span class="highlight">Statsd</span>/<span class="highlight">Prometheus</span> metrics collection, <span class="highlight">Gitlab</span> CI deployments, <span class="highlight">Kyverno</span> admission control, strict default <span class="highlight">Pod Security Policies</span> and <span class="highlight">Network Policies</span>.</li>
+            <li>After extensive analysis of the container orchestration landscape, led the design and implementation of Meraki's EKS-based <span class="highlight">Kubernetes</span> platform, provisioned using <span class="highlight">Terraform</span> and <span class="highlight">Helm</span>. It included <span class="highlight">Grafana</span> SLO/SLI dashboards, <span class="highlight">Fluentd/Kinesis</span> logging pipeline, <span class="highlight">Okta</span> authentication, <span class="highlight">Statsd</span>/<span class="highlight">Prometheus</span> metrics collection, <span class="highlight">Gitlab</span> CI deployments, <span class="highlight">Kyverno</span> admission control, strict default <span class="highlight">Pod Security Policies</span> and <span class="highlight">Network Policies</span>.</li>
             
             <li>Designed and implemented a <span class="highlight">Haproxy</span>-based on-prem proxy infrastructure, for exposing customer-facing services running in EKS on IP ranges owned by Meraki. At peak, it was handling 3 million concurrent connections.</li>
             
@@ -462,9 +477,9 @@ left: .55em;
           <span class="section-item-title">Systems &amp; Network Engineer</span><span class="section-item-date">Sept. 2010 to Oct. 2011, April 2015</span>
           <ul class="section-item-highlights">
             
-            <li>Deployed on various international missions in response to humanitarian emergencies: floods, influx of refugees, cyclone, conflict or famine, for a total of 5 months on mission. Established telephone operations for populations, installed <span class="highlight">network and satellite equipment</span> for NGOs and the UN. Provided trainings.</li>
+            <li>Deployed on various international missions in response to humanitarian emergencies: floods, influx of refugees, cyclone, conflict or famine, for a total of 5 months on mission. Established telephone operations for populations, installed <span class="highlight">network and satellite equipment</span> for international relief organisations and the United Nations. Provided trainings.</li>
             
-            <li>Maintained and evolved the NGO's infrastructure (<span class="highlight">website</span>, <span class="highlight">email servers</span>, <span class="highlight">storage server</span>, <span class="highlight">equipment database</span>, <span class="highlight">OpenBSD firewall</span>).</li>
+            <li>Maintained and evolved TSF's infrastructure (<span class="highlight">website</span>, <span class="highlight">email servers</span>, <span class="highlight">storage server</span>, <span class="highlight">equipment database</span>, <span class="highlight">OpenBSD firewall</span>).</li>
             
             <li>Contributed to the TSFBox, a custom <span class="highlight">Linux</span> router facilitating monitoring and optimization of internet connections provided during missions, with services written in <span class="highlight">Perl</span>.</li>
             
